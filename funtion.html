@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+
+<body>
+    <h1>箭头函数</h1>
+</body>
+<script type="text/javascript">
+// var f1 = (v) => v;
+// console.log(f1(6));
+
+// // for (let i = 0; i < 5; i++) {
+// //     (function(i) {
+// //         setTimeout(() => {
+// //             console.log(i)
+// //         }, 1000)
+// //     })(i)
+// // }
+// var j = 0;
+// var timer = null;
+// timer = setInterval(() => {
+//     if (j == 5) {
+//         clearInterval(timer);
+//     }
+//     console.log(j);
+//     j++;
+// }, 1000);
+
+
+var name = "window";
+var person1 = {
+    name: "person1",
+    show1: function() {
+        console.log(this.name);
+    },
+    show2: () => console.log(this.name),
+    show3: function() {
+        return function() {
+            console.log(this.name);
+        }
+    },
+    show4: function() {
+        return () => console.log(this.name);
+    }
+};
+var person2 = { name: "person2" };
+
+person1.show1(); //person1
+person1.show1.call(person2) //person2
+person1.show2(); //window
+person1.show2.call(person2); //window
+person1.show3()(); //window
+person1.show3().call(person2); //person2
+person1.show3.call(person2)(); //window
+person1.show4()(); //person1
+person1.show4().call(person2); //person1
+person1.show4.call(person2)(); //person2
+
+window.val = 1;
+var obj = {
+    val: 2,
+    dbl: function() {
+        // this.val *= 2;
+        // val *= 2;
+        console.log(val);
+        console.log(this.val);
+    }
+};
+// 说出下面的输出结果
+obj.dbl();
+// var func = obj.dbl;
+// func();
+</script>
+
+</html>

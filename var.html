@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>var let const</title>
+</head>
+<body>
+	<h1>var let const</h1>
+</body>
+<script type="text/javascript">
+	for(var i = 0;i < 5;i++){
+		setTimeout(function(){
+			console.log(i);//5,5,5,5,5,5
+		},100)
+	};
+
+	for(let j = 0;j < 5;j++){
+		setTimeout(function(){
+			console.log(j);//0,1,2,3,4,5
+		},100)		
+	};
+	if(true){
+		let m= 1;
+	}
+	//console.log(m)//报错
+
+	//console.log(i); 5
+	//console.log(j)//报错
+	//let 在for if作用域内；var在 for if 作用于window;
+	//
+	//
+	//此处补充说明 var变量提升； 同样的function也存在
+	console.log(n); //undefined
+	var n = 0;
+	//console.log(o); // o is not defined
+	//o = 0;
+	console.log(mm)
+	function mm() {
+		
+	};
+	console.log(nn);
+	var nn = function(){
+
+	}
+
+	//来来来 我们来看下let是否存在变量提升
+	//
+	//console.log(a)// a is not defined 哈哈哈不存在什么变量提升
+	let a = 0;
+	// let a = 1;
+	// console.log(a) let 不可以重复声明 var 是可以被重复声明的
+	// 
+	//最后看看const有何神奇之处
+	
+	// console.log(s) 不存在变量提升
+	const s = 88;
+	// const s = 11; //不可以重复声明
+	// console.log(s);
+	// s = 99; //变量指向的内存地址不允许改变
+	// console.log(s); //Assignment to constant variable.
+	// 
+	const ss = {};
+	ss.prop = 1;
+	console.log(ss);
+
+	const sss = [];
+	sss.push(1);
+	console.log(sss)
+
+</script>
+</html>

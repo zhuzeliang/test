@@ -1,0 +1,207 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+.page-login {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0063a2 url(../../images/bg/bg-login.png) no-repeat center bottom;
+    background-size: 100% 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.logo {
+    .img-logo {
+        width: 1.62rem;
+        display: block;
+        margin: 1.0rem auto;
+    }
+}
+
+.login-form {
+    padding: 0 0.90rem;
+}
+
+.login-cell {
+    padding: 0.20rem;
+    background: transparent;
+    position: relative;
+    margin-bottom: 0.30rem;
+    border-radius: 0.80rem;
+    &::after {
+        content: "\200B";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: 0.80rem;
+    }
+    .login-input {
+        position: relative;
+        width: 100%;
+        line-height: 1.47;
+        background: transparent;
+        text-align: center;
+        z-index: 10;
+        font-size: 0.32rem;
+        &::-webkit-input-placeholder {
+            color: #fff;
+        }
+    }
+}
+
+.login-guide {
+    text-align: center;
+    padding: 0.40rem 0;
+    .guide {
+        display: inline-block;
+        padding: 0 0.48rem;
+        color: #fff;
+        line-height: normal;
+        &:first-child {
+            border-right: 1px solid #fff;
+        }
+    }
+}
+
+
+.quick-agree {
+    text-align: center;
+    padding: 0.30rem 0;
+    .agree {
+        margin-left: 0.06rem;
+        display: inline-block;
+        font-size: 0.28rem;
+        color: #fff;
+    }
+}
+
+//checkbox
+.zui-checkbox-box {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    .zui-checkbox {
+        position: absolute;
+        left: -99999px;
+    }
+    .zui-checkbox-tip {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        position: relative;
+        background: transparent;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-bottom: 1px;
+        box-sizing: border-box;
+    }
+    .zui-checkbox:checked+.zui-checkbox-tip {
+        &::after {
+            position: absolute;
+            content: "\200B";
+            display: block;
+            width: 8px;
+            height: 4px;
+            background: transparent;
+            left: 50%;
+            top: 50%;
+            margin-left: -4px;
+            margin-top: -4px;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            transform: rotateZ(-45deg);
+        }
+    }
+}
+
+.quick-cell {
+    @include flexbox;
+    @include vertical-layout(center);
+    background: transparent;
+    position: relative;
+    padding:0.10rem 0;
+    margin-bottom:0.30rem;
+    &::after {
+        content: "\200B";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 1px;
+        border-top: 1px solid #fff;
+        color: #e5e5e5;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+        z-index: 2;
+    }
+    .quick-cell-bd {
+        @include flex(1);
+        padding:0.15rem 0.20rem;
+        .quick-input {
+            width: 100%;
+            line-height: 1.47;
+            font-size: 0.32rem;
+            background: transparent;
+            &::-webkit-input-placeholder {
+                color: #fff;
+            }
+        }
+    }
+    .quick-cell-hd {
+        .quick-cell-icon {
+            width: 0.46rem;
+            display: block;
+            vertical-align:middle;
+        	margin-top:-2px;
+        	margin-bottom:1px;
+        }
+        .img-vcode{
+        	width: 1.45rem;
+        	display:block;
+        	height: 0.60rem;
+        }
+        .hq {
+            color:#fff;
+            background: transparent;
+            padding:0 0.30rem;
+            border-left:1px solid #fff;
+            line-height:normal;
+            font-size:0.32rem;
+        }
+    }
+}
+.quick-btn{
+	margin-top:0.60rem;
+}
+.zui-btn{
+	position: relative;
+    display: block;
+    padding: 0 0.10rem;
+    box-sizing: border-box;
+    font-size: 0.34rem;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 2.55555556;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+}
+.zui-btn-primary{
+	background:$main-color;
+	border-radius:0.50rem;
+}

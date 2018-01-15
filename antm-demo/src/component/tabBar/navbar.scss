@@ -1,0 +1,81 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+footer{
+	position: fixed;
+	bottom:0;
+	left:0;
+	right:0;
+	background:#fff;
+	z-index: 100;
+}
+.footer{
+	@include flexbox;
+	.footer-tab{
+		@include border-1px;
+		display:block;
+		@include flex(1);
+		@include flexbox;
+		@include vertical;
+		@include vertical-layout(center);
+        @include horizontal-layout(center);
+		width: 0;
+		height:1.10rem;
+		border-top-width: 1px;
+		color:$sub-font-color;
+		font-size:0.32rem;
+		&.index{
+			.footer-tab-icon{
+				height: 0.40rem;
+				width: 100%;
+				background:url(../../images/icon/index.png) no-repeat center center;
+				background-size:auto 0.38rem;
+				margin-bottom: 0.10rem;
+			}
+			&.current{
+				color:$main-color;
+				.footer-tab-icon{
+					height: 0.40rem;
+					width: 100%;
+					background:url(../../images/icon/index-c.png) no-repeat center center;
+					background-size:auto 0.38rem;
+				}
+			}
+		}
+		&.store{
+			.footer-tab-icon{
+				height: 0.40rem;
+				width: 100%;
+				background:url(../../images/icon/store.png) no-repeat center center;
+				background-size:auto 0.38rem;
+				margin-bottom: 0.10rem;
+			}
+			&.current{
+				color:$main-color;
+				.footer-tab-icon{
+					height: 0.40rem;
+					width: 100%;
+					background:url(../../images/icon/store-c.png) no-repeat center center;
+					background-size:auto 0.38rem;
+				}
+			}
+		}
+		&.my{
+			.footer-tab-icon{
+				height: 0.40rem;
+				width: 100%;
+				background:url(../../images/icon/my.png) no-repeat center center;
+				background-size:auto 0.40rem;
+				margin-bottom: 0.10rem;
+			}
+			&.current{
+				color:$main-color;
+				.footer-tab-icon{
+					height: 0.40rem;
+					width: 100%;
+					background:url(../../images/icon/my-c.png) no-repeat center center;
+					background-size:auto 0.40rem;
+				}
+			}
+		}
+	}
+}

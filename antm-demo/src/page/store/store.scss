@@ -1,0 +1,91 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+header{
+	position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #f8f8f8;
+    z-index:100;
+}
+.header-fixed {
+    height: 1.20rem;
+    @include flexbox;
+    @include vertical-layout(center);
+    padding: 0 0.30rem;
+    .zui-search {
+        background: #fff;
+        margin-right: 0.30rem;
+        @include flex(1);
+        @include flexbox;
+        @include horizontal-layout(center);
+        position: relative;
+        padding: 0.15rem 0;
+        border-radius: 0.50rem;
+        &::after {
+            content: "\200B";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid rgba(218, 218, 218, 0.8);
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+            box-sizing: border-box;
+            border-radius: 0.80rem;
+        }
+        .zui-search-icon {
+            width: 1.0rem;
+            background: url(/static/images/icon/search.png) no-repeat center center;
+            background-size: 0.30rem auto;
+            @include border-1px;
+            border-right-width: 1px;
+        }
+        .zui-search-bd {
+            @include flex(1);
+            padding: 0 0.30rem;
+            position: relative;
+            z-index: 10;
+            .zui-search-input {
+                width: 100%;
+                line-height: normal;
+            }
+        }
+    }
+    .city {
+    	display:block;
+        color: $main-color;
+        background: transparent;
+        position: relative;
+        padding-right: 0.35rem;
+        &::after{
+        	content: "\200B";
+		    display: inline-block;
+		    height: 0.16rem;
+		    width: 0.16rem;
+		    border-width: 2px 2px 0 0;
+		    border-color: $main-color;
+		    border-style: solid;
+		    -webkit-transform: rotateZ(135deg);
+		    transform: rotateZ(135deg);
+		    position: absolute;
+		    top: 50%;
+		    margin-top: -0.16rem;
+		    right: 2px;
+
+	    }
+	}
+}
+
+.page-store {
+	padding-top: 1.20rem;
+	padding-bottom:1.10rem;
+}
+
+.product{
+    @include border-1px;
+    border-bottom-width:1px;
+}

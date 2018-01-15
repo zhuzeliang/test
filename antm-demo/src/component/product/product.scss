@@ -1,0 +1,91 @@
+@import '../../style/mixins.scss';
+@import '../../style/variable.scss';
+.product-text-address{
+        margin-top: 0.30rem;
+    }
+.product {
+    display: block;
+    @include flexbox;
+    background: #fff;
+    padding: 0.30rem;
+    line-height:1.36;
+    .product-img {
+         .distance{
+                // background: url(/static/images/icon/distance.png) no-repeat left center;
+             //    background-size: 0.28rem;
+             //    padding-left:0.35rem;
+                line-height:1;
+                background:$main-color;
+                color:#fff;
+                padding:2px 5px;
+                border-radius: 3px;
+                font-size:0.24rem;
+                margin-top:0.12rem;
+                display:inline-block;
+            }
+        img {
+            display: block;
+            width: 2.0rem;
+            height: 1.50rem;
+        }
+    }
+    .product-text {
+        @include flex(1);
+        @include flexbox;
+        @include vertical;
+        // @include horizontal-layout(center);
+        margin-left: 0.20rem;
+        color: $sub-font-color;
+        font-size:0.28rem;
+        .product-text-sub {
+            @include flexbox;
+            @include vertical-layout(center);
+            .product-name {
+                @include flex(1);
+                @include clamp(1);
+                margin-right: 0.20rem;
+                font-size: 0.30rem;
+                color:$main-font-color;
+            }
+            .distance{
+            	// background: url(/static/images/icon/distance.png) no-repeat left center;
+             //    background-size: 0.28rem;
+             //    padding-left:0.35rem;
+                line-height:1;
+                background:$main-color;
+                color:#fff;
+                padding:2px 5px;
+                border-radius: 3px;
+                font-size:0.24rem;
+            }
+        }
+        .product-text-star {
+        	margin-top:0.05rem;
+            margin-bottom:0.12rem;
+            font-size: 0;
+         //    @include flex(1);
+        	// @include flexbox;
+        	// @include vertical-layout(start);
+            .star {
+                display: inline-block;
+                width: 0.28rem;
+                height: 0.28rem;
+                background: url(../../images/icon/star.png) no-repeat center center;
+                background-size: 0.26rem;
+                margin-right:0.10rem;
+            }
+            .star-b {
+                display: inline-block;
+                width: 0.28rem;
+                height: 0.28rem;
+                background: url(../../images/icon/star-b.png) no-repeat center center;
+                background-size: 0.26rem;
+                margin-right:0.10rem;
+            }
+        }
+        .product-text-address{
+        	@include clamp(1);
+        	margin-bottom:0.03rem;
+        }
+    }
+}
