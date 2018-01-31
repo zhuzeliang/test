@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <script type="text/javascript" src="http://at.alicdn.com/t/font_554873_81hz2gtqfthp8pvi.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <title>城市搜索</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body,
+    button,
+    input,
+    select,
+    textarea,
+    a {
+        font-family: Helvetica, sans-serif, "Microsoft YaHei", Tahoma;
+        font-size: 0.30rem;
+        color: #24292e;
+    }
+
+    .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+        color: #999999;
+    }
+
+    .header-search {
+        height: 1.0rem;
+        display: -webkit-box;
+        -webkit-box-align: center;
+        padding: 0 0.20rem;
+        background: #eeeeee;
+        position: sticky;
+        left: 0;
+        top: 0;
+    }
+
+    .search-box {
+        display: -webkit-box;
+        -webkit-box-align: center;
+        -webkit-box-flex: 1;
+        background: #fff;
+        padding: 0 0.20rem;
+        border-radius: 5px;
+    }
+
+    .input-box {
+        -webkit-box-flex: 1;
+    }
+
+    .input-citys {
+        width: 100%;
+        background: #fff;
+        position: sticky;
+        left: 0;
+        top: 1.0rem;
+    }
+
+    .input-city {
+
+        padding: 0.20rem;
+        display: block;
+        text-decoration: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .input-box input {
+        width: 100%;
+        border: 0;
+        outline: none;
+        padding: 0.15rem 0.20rem;
+    }
+
+    .no-city {
+        color: #666;
+        text-align: center;
+        padding: 0.20rem;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header-search">
+        <div class="search-box">
+            <div class="icon-box">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-sousuo"></use>
+                </svg>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="请输入城市名、拼音或首字母查询" id="input">
+            </div>
+            <div class="cancel">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-cancel"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="input-citys">
+        <!-- <a href="###" class="input-city">上海</a>
+        <a href="###" class="input-city">上海</a>
+        <a href="###" class="input-city">上海</a>
+        <a href="###" class="input-city">上海</a> -->
+    </div>
+<button style="visibility: hidden;">这是个测试visibility</button>
+<button style="opacity:0;">这是个测试opacity</button>
+<button style="display: none;">这是个测试display</button>
+</body>
+<script type="text/javascript">
+    $("button").on("click",function(){
+        alert(1)
+    })
+var cityList = [
+    { name: "杭州", adcode: "xxxx", pinyin: "hangzhou" },
+    { name: "上海", adcode: "yyyy", pinyin: "shanghai" },
+    { name: "上安", adcode: "yyyy", pinyin: "shanghai" },
+    { name: "安庆", adcode: "xxxx", pinyin: "anqing" },
+    { name: "南京", adcode: "yyyy", pinyin: "nanjing" }
+];
+
+$("#input").on("input porpertychange", function() {
+    $(".input-citys").empty();
+    var showList = [];
+    var value = $.trim($(this).val()).toLowerCase();
+    var valueReg = new RegExp(value);
+    var fragDom = '';
+    var noCity = '';
+    if (value == '') {
+        return;
+    }
+    $.each(cityList, function(i, item) {
+        if (valueReg.test(item.name)) {
+            showList.push(item);
+        } else if (valueReg.test(item.pinyin)) {
+            showList.push(item);
+        }
+    });
+    $.each(showList, function(i, item) {
+        fragDom += `<a href="###" class="input-city" data=${item.adcode}>${item.name}</a>`
+    });
+    if (showList.length == 0) {
+        noCity = '<div class="no-city">没有搜索到城市<div>';
+        $(".input-citys").html(noCity);
+    } else {
+        $(".input-citys").html(fragDom);
+    }
+});
+</script>
+
+</html>

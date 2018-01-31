@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -45,6 +45,9 @@ var person1 = {
     },
     show4: function() {
         return () => console.log(this.name);
+    },
+    show5: () => {
+        return () => console.log(this.name);
     }
 };
 var person2 = { name: "person2" };
@@ -59,7 +62,9 @@ person1.show3.call(person2)(); //window
 person1.show4()(); //person1
 person1.show4().call(person2); //person1
 person1.show4.call(person2)(); //person2
-
+person1.show5()(); //window
+person1.show5().call(person2);//window
+person1.show5.call(person2)();//window
 window.val = 1;
 var obj = {
     val: 2,
@@ -74,6 +79,8 @@ var obj = {
 obj.dbl();
 // var func = obj.dbl;
 // func();
+
+//箭头函数this指向函数上一层函数this，若无上一层函数，指向全局window;与调用对象无关，定义时即确定了this指向
 </script>
 
 </html>

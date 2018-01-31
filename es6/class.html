@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>class</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+class animal {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    speak() {
+        console.log(this.name);
+    }
+};
+var dog = new animal("zhanqg", 26);
+dog.speak();
+
+var i = 0;
+m = i++;
+n = ++i;
+console.log(m, n);
+console.log(i)
+// var student = new Object();
+// student.name = "Lanny";
+// student.age = "25";
+// student.location = "China";
+let person = [{name:"zeto",age:18},{name:"zeto",age:18}];
+
+var json = JSON.stringify(person);
+var jsonN = json.replace(/name/g,"title")
+var jsonD = JSON.parse(jsonN)
+console.log(jsonD)
+// data[0]['name'] = 2;
+// data.replace(/name/g,"title")
+// console.log(JSON.parse(data))
+</script>
+
+</html>

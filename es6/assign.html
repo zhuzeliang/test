@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object.assign()</title>
+</head>
+<body>
+	<h1>Object.assign()</h1>
+</body>
+<script type="text/javascript">
+	// var target = {a:1,m:2};
+	// var copy = Object.assign({c:6},target);
+	// console.log(copy);
+	// console.log(target);
+	// target.a = 9;
+	// console.log(copy);
+	// console.log(target);
+
+
+	// var name = 'zhangqiang';
+
+	// var person = {
+	// 	name,
+	// 	sayhello:function(){
+	// 		console.log(this.name);
+	// 	},
+	// 	mm:[1,2,5]
+	// };
+	// var animal = {
+	// 	pwd:123,
+	// 	sayhello:function(){
+	// 		console.log(this.name + this.pwd)
+	// 	},
+	// 	mm:[1]
+	// }
+	// var haha = Object.assign(person,animal);
+	// console.log(haha);
+	// haha.sayhello();
+
+
+	//此处 重温下深拷贝与浅拷贝
+
+	// var me = {a:1,b:2};
+	// var cloneMe = me;
+	// console.log(cloneMe); //{a:1,b:1};
+	// cloneMe.a = 3;
+	// console.log(me);
+	// console.log(cloneMe);
+	
+	// var arr = [1,2];
+	// var cloneArr = arr;
+	// console.log(cloneArr);
+	// cloneArr[0] = 3;
+	// console.log(cloneArr);
+	// console.log(arr);
+
+
+	function deepClone(obj){
+		var newObj = {};
+		for(key in obj){
+			newObj[key] = obj[key] == Object ? deepClone(obj[key]) : obj[key];
+		}
+		return newObj;
+	};
+
+	// console.log(deepClone(me));
+	var deepCloneMe = deepClone({a:2,b:{c:1}});
+	console.log(deepCloneMe);
+	deepCloneMe.a = 6;
+	console.log(deepCloneMe);
+</script>
+</html>

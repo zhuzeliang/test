@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三次贝塞尔曲线</title>
+    <style>
+    .animation {
+        width: 50px;
+        height: 50px;
+        background-color: #ed3;
+        -webkit-transition: all 5s cubic-bezier(0.68, 0.55, 0.27, 1.55);
+       /* cubic-bezier(<x1>, <y1>, <x2>, <y2>)*/
+       /*x轴取值在[0,1]之间，y轴并无限制*/
+    }
+
+    .animation:hover {
+        -webkit-transform: translateX(400px);
+    }
+    </style>
+</head>
+
+<body>
+	<div class="animation"></div>
+
+</body>
+<script type="text/javascript">
+	{"show":["https://e-p4p.163.com/s?ret=1516782587818&md5=-7f0435d9cb1e86e1fc658beb8ac11d76&vat=0&r=6f041711935d426d9350c2b3e7d3eec5&ap=310000&ac=310000&os=2&pf=ios&bt=1&u=b3afac2481e64eeb838ca09caf061b92&nt=4&gi=ac9a84fe77c8e3b2cb7ce63f10ffa7ff&m=1&clt=w&st=2&cr=news&cst=rank_base,ctr_default,newad_boost_default,exp_rank_ecpm_all_1.05,ecpm_truncate_test1,diversity_default,winprice_adjust_base&ipf=0&isp=4&cid=ac9a84fe77c8e3b2cb7ce63f10ffa7ff&av=1.0&dm=iphone&at=&lo=&la=&aid=15327&pid=72740&s=283595&i=499123&ctr=1737&ates=Jeze7WUrGsWe%2FK2wBDinuw%3D%3D&pnes=seQ1S%2BMBLDJRNCrdLDr21g%3D%3D&soes=37R8JklLwONgkLRKivA%2BBA%3D%3D&iaes=secCfgmCZi3r31YR7TX77Q%3D%3D&ctres=zFGydOsVCsvwjc2ORgOX4w%3D%3D&ct=1&bid=3wu%2BBRdJHEeOEQE4qHBMwQ%3D%3D&prc=165wVQ%2FMakcgIR80Sa3%2Bjw%3D%3D&prc2=cJRfq8K6dFpd%2F2FanwhkRw%3D%3D&wp=JQtpwdifa1OxZnAX2LFx4g%3D%3D&it=1&i1=11&i2=114&lc=4001","https://nex.163.com/ssp/show?deviceType=2&category=NEWS&style=docAD&industry=-&source=314EA67F&ctime=1516782587911&galaxyTag=-&t=hRv8UWOVvEJLg%2BjsUAOP5R5YxHxA27G2g5yM6RR2zbEwVEueCa68isWzenPu83BBULtLn8aIVqJDTKbUbVFZJg%3D%3D&u=LQ%3D%3D&client_type=1&dsp_tag=100000&crid=499123&title=5Zyo5LiK5rW377yM6L%2BY5Zyo5om%2B6L6F5a%2B854%2Bt77yf5ZCN5biI5a%2BS5YGHMeWvuTPovoXlr7zvvIww5YWD6K%2BV5ZCs&province=-&v=1&cuuid=fc6d260d1ee44450a4cce280224c404b&app_version=MS4w&logversion=3&location=4001&dt=aXBob25l&subIndustry=-&nexSaleType=0&city=-&dspid=100000&is_test=0&news_req_style=-&device_id=-&advertiserId=LQ%3D%3D&adPlanId=-&service=4&uuid=e16e1f1fd2224c98b384967eb650d3c1&rpid=37738&os=0&timeStamp=1516782587911&contractNumber=-&net_work=2G"],"click":["https://e-p4p.163.com/c?ret=1516782587818&md5=-7f0435d9cb1e86e1fc658beb8ac11d76&vat=1&r=6f041711935d426d9350c2b3e7d3eec5&ap=310000&ac=310000&os=2&pf=ios&bt=1&u=b3afac2481e64eeb838ca09caf061b92&nt=4&gi=ac9a84fe77c8e3b2cb7ce63f10ffa7ff&m=1&clt=w&st=2&cr=news&cst=rank_base,ctr_default,newad_boost_default,exp_rank_ecpm_all_1.05,ecpm_truncate_test1,diversity_default,winprice_adjust_base&ipf=0&isp=4&cid=ac9a84fe77c8e3b2cb7ce63f10ffa7ff&av=1.0&dm=iphone&at=&lo=&la=&aid=15327&pid=72740&s=283595&i=499123&ctr=1737&ates=Jeze7WUrGsWe%2FK2wBDinuw%3D%3D&pnes=seQ1S%2BMBLDJRNCrdLDr21g%3D%3D&soes=37R8JklLwONgkLRKivA%2BBA%3D%3D&iaes=secCfgmCZi3r31YR7TX77Q%3D%3D&ctres=zFGydOsVCsvwjc2ORgOX4w%3D%3D&ct=1&bid=3wu%2BBRdJHEeOEQE4qHBMwQ%3D%3D&prc=165wVQ%2FMakcgIR80Sa3%2Bjw%3D%3D&prc2=cJRfq8K6dFpd%2F2FanwhkRw%3D%3D&wp=JQtpwdifa1OxZnAX2LFx4g%3D%3D&it=1&i1=11&i2=114&lc=4001","https://nex.163.com/ssp/click?deviceType=2&category=NEWS&style=docAD&industry=-&source=314EA67F&ctime=1516782587911&galaxyTag=-&t=hRv8UWOVvEJLg%2BjsUAOP5R5YxHxA27G2g5yM6RR2zbEwVEueCa68isWzenPu83BBULtLn8aIVqJDTKbUbVFZJg%3D%3D&u=LQ%3D%3D&client_type=1&dsp_tag=100000&crid=499123&title=5Zyo5LiK5rW377yM6L%2BY5Zyo5om%2B6L6F5a%2B854%2Bt77yf5ZCN5biI5a%2BS5YGHMeWvuTPovoXlr7zvvIww5YWD6K%2BV5ZCs&province=-&v=1&cuuid=fc6d260d1ee44450a4cce280224c404b&app_version=MS4w&logversion=3&location=4001&dt=aXBob25l&subIndustry=-&nexSaleType=0&city=-&dspid=100000&is_test=0&news_req_style=-&device_id=-&advertiserId=LQ%3D%3D&adPlanId=-&service=4&uuid=e16e1f1fd2224c98b384967eb650d3c1&rpid=37738&os=0&timeStamp=1516782587911&contractNumber=-&net_work=2G"]}
+</script>
+</html>

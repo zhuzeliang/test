@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise</title>
+</head>
+<body>
+	<h1>promise</h1>
+</body>
+<script type="text/javascript">
+	var p = new Promise(function(resolve,reject){
+		setTimeout(function(){
+			resolve("Jin");
+			reject("我走了")
+		},1000);
+	});
+
+	var q = new Promise(function(resolve,reject){
+		setTimeout(function(){
+			resolve("Jin jin");
+			reject("我真的走了");
+		},999);
+	});
+
+	// p.then(function(data){
+	// 	console.log(data);
+	// },function(data){
+	// 	console.log(reason);
+	// });
+
+	Promise.all([p,q])
+	.then(function(data){
+		console.log(data);
+	})
+	.catch(function(data){
+		console.log(data); //reject 并非数组
+	});
+
+	Promise.race([p,q])
+	.then(function(data){
+		console.log(data);
+	})
+	.catch(function(data){
+		console.log(data);
+	});
+
+
+</script>
+</html>
