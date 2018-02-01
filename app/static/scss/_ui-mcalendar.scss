@@ -1,0 +1,199 @@
+
+.futu-calendar{
+  margin: 0;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html{
+    -webkit-tap-highlight-color: transparent;
+}
+
+.futu-calendar *{
+    box-sizing: content-box!important;;
+}
+
+.futu-calendar a {
+   -webkit-text-decoration-skip: objects;
+}
+
+
+.futu-calendar a,
+.futu-calendar a:link,
+.futu-calendar a:visited,
+.futu-calendar a:hover,
+.futu-calendar a:active {
+    outline-width: 0;
+    text-decoration:none;
+}
+
+.futu-calendar ul,.futu-calendar div,.futu-calendar ul li{
+    padding: 0;
+    margin: 0;
+}
+.futu-calendar ul,.futu-calendar ul li{
+    list-style-type: none;
+}
+.futu-calendar ul{
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+}
+
+.futu-calendar{
+    font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.futu-calendar-mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1200;
+    background-color: rgba(0,0,0,.5);
+    display: none;
+    z-index: 10;
+}
+.futu-calendar.maskable{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.futu-calendar .tool-bar{
+    background-color: #efeff4;
+    border-bottom: #d6d6dd 1px solid;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px;
+}
+
+.futu-calendar .tool-bar a{
+    margin-right: 20px;
+    text-decoration: none;
+    color: #2eb6aa;
+    outline: none;
+}
+
+.futu-calendar .startend-bar{
+    display: none;
+}
+.multiple-select.futu-calendar .startend-bar{
+    background-color: #efeff4;
+    height: 34px;
+    line-height: 34px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: block;
+}
+.futu-calendar .weekdate ul li,.futu-calendar .regular-date ul li{
+    width: 1%;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    text-align: center;
+    color: #121313;
+}
+
+.futu-calendar .time-bar{
+    background-color: #efeff4;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+}
+.futu-calendar .time-bar span{
+    display: inline-block;
+    height: 42px;
+    position: relative;
+}
+.futu-calendar .time-bar span em{
+    display: block;
+    width: 20px;
+    height: 42px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAgCAMAAABw3UvaAAAANlBMVEUAAAAMX8zF2fPI2/QKXswpctPN3/UebNDS4vYtddQXZ88RYs4kb9LD2PMxeNTK3fRPjNt7qeT1AjZ1AAAAAXRSTlMAQObYZgAAARdJREFUOMuVVNuyxCAIExAVvLT7/z97Lp3tTruiNi99YAIhDborUlbXRc7JDYAM2SCCkM0LEdhonBhiMudFH9Eq1t8i2U3DUI6kbiF7RjdAZZ87jUnAMu5jOcj2vR9IcBNsDPc9sVxXt+0rdNNZ0C2glotaUi91Qvk4pCeTGii5RaBC297zoJFbBjY4ZiJ7Y5450zP955of8Q4KujLI5yC3xTXg8JQYGMRh83nANFLd6t8HmiHWtPUYFRo8WRMjtHAmkHHd0tPNR7+EGBgvbTQs+aI3caQgtDBPvlIdBDTNeEk7107qS50dYzfVqUyOGQuUZDQcPR8UDUmTByvIICYkPifrafRCo/jC3q/sk1NI+6tfeO03KT/6MQfEZvsDxAAAAABJRU5ErkJggg==");
+    background-repeat: no-repeat;
+    background-size: 28px 16px;
+    position: absolute;
+    top: 0px;
+}
+
+.futu-calendar .time-bar span em.emLeft {
+    background-position: 5px 50%;
+    left: -30px;
+}
+
+.futu-calendar .time-bar span em.emRight {
+    background-position: -14px 50%;
+    right: -30px;
+}
+
+.futu-calendar .weekdate{
+    font-size: 12px;
+    color: #959baa;
+    height: 22px;
+    line-height: 22px;
+    background-color: #efeff4;
+}
+
+.futu-calendar .regular-date{
+    background-color: white;
+}
+.futu-calendar .regular-date ul li{
+    height: 30px;
+    padding: 6px 0;
+    border: none;
+}
+
+.futu-calendar .regular-date ul li span{
+    display: inline-block;
+    vertical-align: top;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    border: none;
+}
+
+
+.futu-calendar .regular-date li.othermonth{
+    color: #aab0bf;
+}
+
+
+.futu-calendar .regular-date li.today span{
+    color: #2eb6aa;
+    font-weight: 700;
+}
+
+.futu-calendar .regular-date li.selectable span{
+    color: #121313;
+    background-color: #e7e7ee;
+}
+
+
+.futu-calendar .regular-date li.selected span{
+    color: #FFF;
+    background-color: #2eb6aa;
+    font-weight: 700;
+}
+
+
+.futu-calendar .regular-date li.startenditem span{
+    color: #FFF;
+    background-color: #2eb6aa;
+}
+
+.futu-calendar .regular-date li.startendflag span{
+    color: #FFF;
+    background-color: orange;
+}
+

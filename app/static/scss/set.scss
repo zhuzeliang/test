@@ -1,0 +1,16 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+@import "footer";
+.quit{
+	display:block;
+	background: #fff;
+	margin-top:0.30rem;
+	text-align:center;
+	padding: 0.35rem;
+	color:$main-color;
+	margin-bottom:4.20rem;
+}

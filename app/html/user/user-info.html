@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/append-info.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <title>个人信息</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="zui-forms">
+            <form id="form">
+                <div class="zui-cell" id="uploader">
+                    <div class="zui-cell-label">头像</div>
+                    <div class="zui-cell-bd">
+                        <div class=" weui-cells_form" id="uploader">
+                            <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" capture="camera" multiple="" />
+                            <img src="/static/images/bg/user.png" class="preview">
+                        </div>
+                    </div>
+                    <div class="zui-cell-hd"><span class="zui-icon-right zui-mm"></span></div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">姓名</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input" autocomplete="off" placeholder="请填写真实姓名" required pattern="" emptyTips="请填写真实姓名" notMatchTips="请填写真实有效姓名" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">身份证号</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input m-card" autocomplete="off" placeholder="请填写真实有效身份证号" pattern="REG_IDNUM" maxlength="18" emptyTips="请填写真实有效身份证号" notMatchTips="身份证号格式不正确" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">性别</div>
+                    <div class="zui-cell-bd" onclick="pickerFun($(this),0)">
+                        <input type="text" class="zui-input zui-picker" autocomplete="off" placeholder="请选择性别" emptyTips="请选择性别" readonly />
+                    </div>
+                    <div class="zui-cell-hd"><span class="zui-icon-right zui-mm"></span></div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">手机号码</div>
+                    <div class="zui-cell-bd">
+                        <input type="tel" class="zui-input phone" autocomplete="off" placeholder="请填写手机号码" pattern="^1[3|4|5|7|8][0-9]{9}$" maxlength="11" emptyTips="请填写手机号码" notMatchTips="手机号码格式不正确" />
+                    </div>
+                </div>
+                <div class="submit-box">
+                    <a href="###" class="zui-btn zui-btn-login" id="btn-form">保存</a>
+                </div>
+            </form>
+        </div>
+        <div class="et-footer">
+            <div class="hos-img">
+                <img src="/static/images/bg/hos.png">
+            </div>
+            <div class="hos-type">
+                <span>上海市第一人民医院体检中心</span>
+                <span class="dot">.</span>
+                <span>公立三甲甲等医院</span>
+            </div>
+            <div class="hos-address">
+                <img src="/static/images/icon/address.png">
+                <span>上海市徐汇区桂林路406号1号楼502</span>
+            </div>
+            <div class="hos-link">
+                <a href="tel:021-88888888">
+                    <img src="/static/images/icon/tel.png">
+                    <span>021-88888888</span>
+                </a>
+                <a href="http://api.map.baidu.com/geocoder?location=31.144001,121.32501&coord_type=gcj02&output=html">
+                    <img src="/static/images/icon/map.png">
+                    <span>导航</span>
+                </a>
+            </div>
+            <div class="et">由医通在线提供技术支持</div>
+        </div>
+    </div>
+</body>
+<script>
+// 解决ios不支持readonly
+$("input[readonly]").on("focus", function() {
+    $(this).trigger('blur');
+})
+//提交登录
+$("#btn-form").on("click", function() {
+    weui.form.validate('#form', function(error) {
+        if (!error) {
+            var loading = weui.loading('提交中...');
+            setTimeout(function() {
+                loading.hide();
+                weui.toast('提交成功', 3000);
+            }, 1500);
+        }
+    }, {
+        regexp: {
+            IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,
+        }
+    });
+});
+weui.form.checkIfBlur('#form', {
+    regexp: {
+        IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,
+    }
+});
+// 倒计时
+function timeFun(dom, time) {
+    if (time == 0) {
+        dom.prop("disabled", false);
+        dom.val("重新获取");
+    } else {
+        dom.prop("disabled", true);
+        dom.val(--time + " s");
+        setTimeout(function() {
+            timeFun(dom, time);
+        }, 1000);
+    }
+}
+$(".zui-hq").on("click", function() {
+    var phone = $.trim($(".phone").val());
+    if (phone == "") {
+        weui.topTips('手机号码不能为空', 3000);
+        return false;
+    }
+    if (!phone.match(/^1[34578]\d{9}$/)) {
+        weui.topTips('请输入正确的手机号', 3000);
+        return false;
+    }
+    timeFun($(this), 60)
+});
+
+//选择picker
+function pickerFun($dom, i) {
+    var json = [
+        [{
+                label: '男',
+                value: 0
+            },
+            {
+                label: '女',
+                value: 1
+            }
+
+        ],
+        [{
+                label: '未婚',
+                value: 0
+            },
+            {
+                label: '已婚',
+                value: 1
+            }
+        ],
+        [{
+                label: '成人',
+                value: 0
+            },
+            {
+                label: '老人',
+                value: 1
+            },
+            {
+                label: '小孩',
+                value: 2
+            }
+
+        ]
+    ]
+    weui.picker(json[i], {
+        className: 'custom-classname',
+        container: 'body',
+        defaultValue: [0],
+        onChange: function(result) {},
+        onConfirm: function(result) {
+            var label = result[0].label;
+            $dom.find(".zui-picker").val(label);
+        },
+        id: 'singleLinePicker'
+    });
+};
+
+weui.uploader('#uploader', {
+    url: 'http://localhost:8081',
+    auto: true,
+    type: 'file',
+    fileVal: 'fileVal',
+    compress: {
+        width: 1600,
+        height: 1600,
+        quality: .8
+    },
+    onBeforeQueued: function(files) {
+        // `this` 是轮询到的文件, `files` 是所有文件
+        if (["image/jpg", "image/jpeg", "image/png", "image/gif"].indexOf(this.type) < 0) {
+            weui.alert('请上传图片');
+            return false; // 阻止文件添加
+        }
+        if (this.size > 10 * 1024 * 1024) {
+            weui.alert('请上传不超过10M的图片');
+            return false;
+        }
+        if (files.length > 1) { // 防止一下子选择过多文件
+            weui.alert('最多只能上传1张图片，请重新选择');
+            return false;
+        }
+
+        //return true; // 阻止默认行为，不插入预览图的框架
+    },
+    onQueued: function() {
+      // console.log(this.status); // 文件的状态：'ready', 'progress', 'success', 'fail'
+        console.log(this.url); // 如果是base64上传，file.base64可以获得文件的base64
+        $(".preview").attr('src',this.url)
+        // this.upload(); // 如果是手动上传，这里可以通过调用upload来实现；也可以用它来实现重传。
+        // this.stop(); // 中断上传
+
+        // return true; // 阻止默认行为，不显示预览图的图像
+    },
+    onBeforeSend: function(data, headers) {
+        // console.log(this, data, headers);
+        // $.extend(data, { test: 1 }); // 可以扩展此对象来控制上传参数
+        // $.extend(headers, { Origin: 'http://127.0.0.1' }); // 可以扩展此对象来控制上传头部
+
+        // return false; // 阻止文件上传
+    },
+    onProgress: function(procent) {
+        // console.log(this, procent);
+        // return true; // 阻止默认行为，不使用默认的进度显示
+    },
+    onSuccess: function(ret) {
+        // console.log(this, ret);
+        // return true; // 阻止默认行为，不使用默认的成功态
+    },
+    onError: function(err) {
+        console.log(this, err);
+        // return true; // 阻止默认行为，不使用默认的失败态
+    }
+});
+</script>
+
+</html>

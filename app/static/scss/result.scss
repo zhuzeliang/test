@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+html,body{
+	background:#fff;
+}
+.tips{
+	text-align: center;
+	padding: 0.80rem 0.30rem;
+	line-height:1.8;
+	.tips-img{
+		margin-bottom:0.20rem;
+		img{
+			display:inline-block;
+			width: 1.40rem;
+		}
+	}
+	.zui-btn-see{
+		width: 1.60rem;
+		margin-top:0.40rem;
+	}
+}

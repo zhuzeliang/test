@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/question.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <title>体检自测</title>
+</head>
+
+<body>
+    <div class="q-header">
+        <div class="process-text">进度</div>
+        <div class="process-box">
+            <div class="process" style="width: 0;"></div>
+        </div>
+        <div class="process-num"><span class="c-index"></span>/<span class="t-num"></span></div>
+    </div>
+    <div class="q-pages">
+        <!-- 第一页 -->
+        <div class="q-page">
+            <div class="q-module">
+                <div class="qh">单选</div>
+                <div class="labels">
+                    <label for="1" class="z-label">
+                        <input type="radio" class="zui-radiobox" value="" id="1" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">男性</span>
+                    </label>
+                    <label for="2" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="2" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                    <label for="6" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="6" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                </div>
+            </div>
+            <div class="q-module">
+                <div class="qh">多选</div>
+                <div class="labels">
+                    <label for="3" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="3">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                    <label for="4" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="4">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- 第二页 -->
+        <div class="q-page">
+            <div class="q-module">
+                <div class="qh">单选</div>
+                <div class="labels">
+                    <label for="1" class="z-label">
+                        <input type="radio" class="zui-radiobox" value="" id="1" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">男性</span>
+                    </label>
+                    <label for="2" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="2" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                    <label for="6" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="6" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                </div>
+            </div>
+            <div class="q-module">
+                <div class="qh">多选</div>
+                <div class="labels">
+                    <label for="3" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="3">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                    <label for="4" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="4">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- 第三页 -->
+        <div class="q-page">
+            <div class="q-module">
+                <div class="qh">单选</div>
+                <div class="labels">
+                    <label for="1" class="z-label">
+                        <input type="radio" class="zui-radiobox" value="" id="1" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">男性</span>
+                    </label>
+                    <label for="2" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="2" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                    <label for="6" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="6" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                </div>
+            </div>
+            <div class="q-module">
+                <div class="qh">多选</div>
+                <div class="labels">
+                    <label for="3" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="3">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                    <label for="4" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="4">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- 第四页 -->
+        <div class="q-page">
+            <div class="q-module">
+                <div class="qh">单选</div>
+                <div class="labels">
+                    <label for="1" class="z-label">
+                        <input type="radio" class="zui-radiobox" value="" id="1" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">男性</span>
+                    </label>
+                    <label for="2" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="2" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                    <label for="6" class="z-label">
+                        <input type="radio" class="zui-radiobox" id="6" name="a">
+                        <div class="zui-radiobox-tip"></div>
+                        <span class="zui-radiobox-text">女性</span>
+                    </label>
+                </div>
+            </div>
+            <div class="q-module">
+                <div class="qh">多选</div>
+                <div class="labels">
+                    <label for="3" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="3">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                    <label for="4" class="z-label">
+                        <input type="checkbox" name="" class="zui-checkbox" value="" id="4">
+                        <div class="zui-checkbox-tip"></div>
+                        <span class="zui-checkbox-text">已婚</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="q-footer">
+        <a href="###" class="q-tab prev">上一页</a>
+        <a href="###" class="q-tab next">下一页</a>
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+
+
+    //单选按钮再次点击取消选中效果
+    $("input[type='radio']").on('click', function() {
+        if ($(this).data('ischecked') == true) {
+            $(this).prop('checked', false);
+            $(this).data('ischecked', false);
+        } else {
+            $(this).prop('checked', true);
+            $(this).data('ischecked', true);
+        }
+        $(this).parents('.z-label').siblings('.z-label').find("input[type='radio']").data('ischecked', false);
+    });
+
+
+
+    //问卷页面切换效果
+    var pageIndex = 0; //起始页
+    var pagesLenght = $(".q-page").length; //问卷总页数
+    var pagesNum = pagesLenght - 1; //问卷总页数减一
+    var processNum = 0; //进度百分比
+    updateProcess(pageIndex, pagesLenght);
+    $(".next").on('click', function() {
+        pageIndex++;
+        if (pageIndex == pagesNum) {
+            $(this).text('查看评估');
+        }
+        if (pageIndex > pagesNum) {
+            pageIndex = pagesNum;
+            $(this).off('click').attr('href', 'question-product.html');
+            return;
+        }
+        updateProcess(pageIndex, pagesLenght);
+        var distance = -100 * pageIndex + '%';
+        $(".q-pages").css({ 'transform': 'translateX(' + distance + ')' });
+    });
+
+    $(".prev").on('click', function() {
+        pageIndex--;
+        if (pageIndex < 0) {
+            pageIndex = 1;
+            return;
+        };
+        updateProcess(pageIndex, pagesLenght);
+        if (pageIndex == pagesNum - 1) {
+            $('.next').text('下一页');
+        };
+        var distance = -100 * pageIndex + '%';
+        $(".q-pages").css({ 'transform': 'translateX(' + distance + ')' });
+    });
+
+
+    function updateProcess(cIndex, tNum) {
+        $(".c-index").text(cIndex);
+        $(".t-num").text(tNum);
+        processNum = cIndex / tNum * 100 + '%';
+        $(".process").css({ 'width': processNum });
+    };
+
+})
+</script>
+
+</html>

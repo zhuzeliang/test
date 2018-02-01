@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+html,
+body {
+    background: #fff;
+}
+
+.doc-header {
+    @include flexbox;
+    @include vertical-layout(center);
+    padding: 0 0.50rem;
+    height: 4.20rem;
+    background: url(/static/images/bg/doc-bg.png) no-repeat center center;
+    background-size: 100% 100%;
+    .doc-img {
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #fff;
+        margin-right: 0.40rem;
+        img {
+            display: block;
+            width: 1.80rem;
+            height: 1.80rem;
+        }
+    }
+    .doc-text {
+        @include flex(1);
+        color: #fff;
+        line-height: 1.38;
+        .doc-text-name {
+            font-size: 0.34rem;
+            font-weight: bolder;
+            margin-bottom: 0.10rem;
+        }
+        .doc-text-hos {
+            margin-bottom: 0.08rem;
+        }
+    }
+}
+
+.doc-t {
+    text-align: center;
+    font-size: 0.32rem;
+    position: relative;
+    @include flexbox;
+    @include vertical-layout(center);
+    .doc-t-m {
+    	padding:0 0.20rem;
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-bottom: 1px;
+            height: 0.4rem;
+            margin-right: 0.10rem;
+        }
+    }
+    .line {
+        display: block;
+        @include flex(1);
+        height: 1px;
+        background: $main-font-color;
+    }
+}
+
+.doc-module {
+    padding: 0 0.30rem;
+}

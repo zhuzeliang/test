@@ -1,0 +1,228 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+@import "footer";
+@import "form";
+html,body{
+    overflow-x:hidden;
+}
+.container {
+    padding-bottom: 1.0rem;
+}
+.q-module{
+	margin-bottom:0.30rem;
+	margin-left:0.30rem;
+	margin-right:0.30rem;
+	background:#fff;
+}
+.zui-cell-bd {
+    margin-left: 0.50rem;
+    .zui-input {
+        text-align: right;
+        color:#999999;
+    }
+}
+
+.q-title {
+    padding: 0.20rem 0.30rem;
+    text-align: center;
+    font-size: 0.34rem;
+}
+.qh{
+	@include border-1px;
+	border-bottom-width: 1px;
+	padding:0.25rem 0.30rem;
+}
+.select-option{
+    .zui-icon-right{
+        margin-left:0.20rem;
+    }
+}
+.labels{
+    // @include flexbox;
+    // @include horizontal-layout(justify);
+    // display: -webkit-flex;
+    // display: flex;
+    // flex-wrap:wrap;
+    // -webkit-flex-wrap:wrap;
+    // justify-content:space-between;
+    // white-space:wrap;
+	padding:0.25rem 0.30rem;
+	.z-label{
+		margin-bottom:0.20rem;
+        display:block;
+        // white-space: nowrap;
+        // width: 50%;
+        // flex:1;
+        // -webkit-flex: 1;
+        //  @include flex(1);
+	}
+}
+//radio
+.z-label {
+    position: relative;
+    cursor: pointer;
+    display:inline-block;
+    margin-right: 0.30rem;
+    color: #999999;
+    font-size:0.30rem;
+    &:last-child{
+    	margin-right:0;
+    }
+    .zui-radiobox {
+        display: none;
+    }
+    .zui-radiobox-tip {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #999999;
+        border-radius: 100%;
+        position: relative;
+        background: #fff;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-bottom: 1px;
+        box-sizing: border-box;
+        margin-right:0.15rem;
+    }
+    .zui-radiobox:checked+.zui-radiobox-tip {
+        background: #fff;
+        border: 1px solid $main-color;
+        &::after {
+            content: "\200B";
+            display: block;
+            width: 14px;
+            height: 14px;
+            background: $main-color;
+            border-radius: 50%;
+            margin: auto;
+            margin-top:2px;
+        }
+    }
+}
+//checkbox
+.z-label {
+    position: relative;
+    cursor: pointer;
+    display:inline-block;
+    margin-right: 0.30rem;
+    color: #999999;
+    font-size:0.30rem;
+    &:last-child{
+    	margin-right:0;
+    }
+    .zui-checkbox {
+        display: none;
+    }
+    .zui-checkbox-tip {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #999999;
+        position: relative;
+        background: #fff;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-bottom: 1px;
+        box-sizing: border-box;
+        margin-right:0.15rem;
+    }
+    .zui-checkbox:checked+.zui-checkbox-tip {
+        background: #fff;
+        border: 1px solid $main-color;
+        box-sizing: border-box;
+        &::after {
+            content: "\200B";
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: $main-color;
+            margin-left: 2px;
+            margin-top:2px;
+        }
+    }
+}
+
+
+.q-pages{
+    @include flexbox;
+    // padding-top: 1.20rem;
+    // padding-bottom:1.20rem;
+     transition:transform ease 0.5s;
+    -webkit-transition:transform ease 0.5s;
+    position: fixed;
+    top:1.20rem;
+    bottom:1.20rem;
+    left:0;
+    right:0;
+}
+.q-page{
+    width: 100%;
+    height:100%;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+}
+.q-header{
+    @include border-1px;
+    border-bottom-width:1px;
+    @include flexbox;
+    @include vertical-layout(center);
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    height: 1.0rem;
+    background:#fff;
+    padding:0 0.60rem;
+    font-size:0.34rem;
+    z-index:100;
+    .process-num{
+        color:$main-color;
+    }
+
+}
+.process-box{
+    @include flex(1);
+    background:#eaeaea;
+    height: 0.32rem;
+    margin:0 0.30rem;
+    border-radius:0.20rem;
+    position: relative;
+    overflow: hidden;
+    .process{
+        position: absolute;
+        left:0;
+        right:0;
+        background:$main-color;
+        height: 100%;
+        transition:all ease 0.3s;
+        -webkit-transition:all ease 0.3s;
+    }
+}
+
+.q-footer{
+    position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#fff;
+    @include flexbox;
+    @include vertical-layout(center);
+    .q-tab{
+        display:block;
+        width: 0;
+        @include flex(1);
+        height: 1.0rem;
+        line-height:1.0rem;
+        text-align:center;
+        font-size:0.34rem;
+        &.next{
+            background:$main-color;
+            color:#fff;
+        }
+    }
+}

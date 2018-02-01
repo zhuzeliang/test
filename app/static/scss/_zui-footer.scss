@@ -1,0 +1,67 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 100;
+}
+
+.footer {
+    @include flexbox;
+    .footer-tab {
+        display: block;
+        @include flexbox;
+        @include vertical;
+        @include vertical-layout(center);
+        @include horizontal-layout(center);
+        width: 0;
+        height: 1.0rem;
+        font-size: 0.32rem;
+        background: #fff;
+        color: #fff;
+        &.edit {
+            background: #ee923f;
+            color: #fff;
+            min-width: 2.0rem;
+        }
+        &.yes {
+            background: $main-color;
+            color: #fff;
+            min-width: 2.0rem;
+        }
+        &.price {
+            @include flex(1);
+            color: $em-color;
+        }
+        &.one {
+            background: $main-color;
+            @include flex(1);
+        }
+    }
+    .gl {
+        background: #fff;
+        color: $main-color;
+        @include flex(1);
+        @include flexbox;
+        @include vertical-layout(center);
+        @include horizontal-layout(center);
+        height: 1.0rem;
+        font-size: 0.32rem;
+        img {
+            display: block;
+            height: 0.42rem;
+            margin-right:0.10rem;
+        }
+    }
+    .over{
+    	background: $main-color;
+        color: #fff;
+        @include flex(1);
+        @include flexbox;
+        @include vertical-layout(center);
+        @include horizontal-layout(center);
+        height: 1.0rem;
+        font-size: 0.32rem;
+    }
+}

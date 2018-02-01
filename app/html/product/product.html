@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/product.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <script src="/static/js/dropload.min.js"></script>
+    <title>体检套餐</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="fixed-top-box">
+            <div class="fixed-top">
+            	<div class="tab down">全部</div>
+                <div class="tab more">性别</div>
+                <div class="tab more">价格</div>
+            </div>
+            <div class="tab-menu-list">
+            	<div class="tab-menu" style="display: none;"></div>
+                <div class="tab-menu" style="display: none;">
+                    <label class="zui-tab-row" for="y1">
+                        <input type="radio" id="y1" class="zui-radio" name="sex" value="男"/>
+                        <div class="zui-tab-bd">男</div>
+                    </label>
+                    <label class="zui-tab-row" for="y2">
+                        <input type="radio" id="y2" class="zui-radio" name="sex" value="女"/>
+                        <div class="zui-tab-bd">女</div>
+                    </label>
+                    <label class="zui-tab-row" for="y3">
+                        <input type="radio" id="y3" class="zui-radio" name="sex" value="不限"/>
+                        <div class="zui-tab-bd">不限</div>
+                    </label>
+                </div>
+                <div class="tab-menu" style="display: none;">
+                    <label class="zui-tab-row" for="x1">
+                        <input type="radio" id="x1" class="zui-radio" name="price" value="1-1000"/>
+                        <div class="zui-tab-bd">1-1000</div>
+                    </label>
+                    <label class="zui-tab-row" for="x2">
+                        <input type="radio" id="x2" class="zui-radio" name="price" value="1000-5000"/>
+                        <div class="zui-tab-bd">1000-5000</div>
+                    </label>
+                    <label class="zui-tab-row" for="x3">
+                        <input type="radio" id="x3" class="zui-radio" name="price" value="5000+"/>
+                        <div class="zui-tab-bd">5000+</div>
+                    </label>
+                    <label class="zui-tab-row" for="x4">
+                        <input type="radio" id="x4" class="zui-radio" name="price" value="全部"/>
+                        <div class="zui-tab-bd">全部</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="product-list">
+                <a href="product-detail.html" class="product">
+                	<div class="product-img">
+                		<img src="/static/images/test/p-male.png">
+                	</div>
+                	<div class="product-text">
+                		<h3>个人基础体检套餐(男)</h3>
+                		<div class="mm-list">
+                			<span class="mm">20-35岁</span>
+                			<span class="mm">全面检查</span>
+                			<span class="mm">高血压</span>
+                		</div>
+                		<div class="product-price">¥2530.00</div>
+                	</div>
+                	<div class="product-link">预约</div>
+                </a>
+                <a href="###" class="product">
+                	<div class="product-img">
+                		<img src="/static/images/test/p-female.png">
+                	</div>
+                	<div class="product-text">
+                		<h3>个人基础体检套餐(女)</h3>
+                		<div class="mm-list">
+                			<span class="mm">20-35岁</span>
+                			<span class="mm">全面检查</span>
+                			<span class="mm">高血压</span>
+                		</div>
+                		<div class="product-price">¥2530.00</div>
+                	</div>
+                	<div class="product-link">预约</div>
+                </a>
+            </div>
+        </div>
+        <!-- 遮罩层 -->
+        <div class="zui-modal"></div>
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+    loadMore(); //分页加载
+ 	//筛选效果
+    $(".tab").on("click", function() {
+    	var $index = $(this).index('.tab');
+    	if($index === 0){
+    		// 点击全部切换
+    		$(this).addClass('down').siblings('.tab').removeClass('down');
+    		$(".zui-modal,.tab-menu").hide();
+    		loadMore();
+    		return;
+    	}
+        if ($(this).hasClass('down')) {
+            $(this).removeClass('down');
+            $(".tab-menu").eq($index).hide();
+            $(".zui-modal").hide();
+        } else {
+            $(this).addClass('down').siblings('.tab').removeClass('down');
+            $(".tab-menu").eq($index).slideDown(300);
+            $(".zui-modal").show();
+        };
+        $(".tab-menu").eq($index).siblings('.tab-menu').hide();
+    });
+
+    //radio 选中取值
+    $("input[type='radio']").on("change",function(){
+    	console.log($(this).val());
+    	$(".tab").removeClass('down');
+    	$(".zui-modal,.tab-menu").hide();
+    	loadMore();
+    });
+
+    $(".zui-modal").on("click",function(){
+    	$(".zui-modal,.tab-menu").hide();
+        $(".tab").removeClass('down');
+    });
+
+
+
+    var timer;
+	var counter = 0;
+	function loadMore() {
+	    // 清空内容
+	    timer = null;
+	    clearTimeout(timer);
+	    timer = setTimeout(function() {
+	        $('.product-list').empty();
+	        $('.dropload-down').remove();
+	        // 每页展示7个
+	        var counter = 0;
+	        var num = 7;
+	        var pageStart = 0,
+	            pageEnd = 0;
+	        $('.content').dropload({
+	            scrollArea: window,
+	            loadDownFn: function(me) {
+	                $.ajax({
+	                    type: 'GET',
+	                    url: '/static/json/more.json',
+	                    dataType: 'json',
+	                    success: function(data) {
+	                        var result = '';
+	                        counter++;
+	                        pageEnd = num * counter;
+	                        pageStart = pageEnd - num;
+	                        for (var i = pageStart; i < pageEnd; i++) {
+	                            result += '<a href="product-detail.html" class="product">' +
+				                                '<div class="product-img">' +
+				                                	'<img src="/static/images/test/p-female.png">' +
+				                                '</div>'+
+				                                '<div class="product-text">'+
+				                                	'<h3>个人基础体检套餐(女)</h3>'+
+					                                '<div class="mm-list">' +
+					                                	'<span class="mm">20-35岁</span>'+
+					                                '</div>' +
+					                                '<div class="product-price">¥2530.00</div>'+
+					                            '</div>'+
+					                            '<div class="product-link">预约</div>'+
+			                               '</a>';
+	                            if ((i + 1) >= data.lists.length) {
+	                                // 锁定
+	                                me.lock();
+	                                // 无数据
+	                                me.noData();
+	                                break;
+	                            }
+	                        }
+	                        // 为了测试，延迟1秒加载
+	                        setTimeout(function() {
+	                            $('.product-list').append(result);
+	                            // 每次数据加载完，必须重置
+	                            me.resetload();
+	                        }, 1000);
+	                    },
+	                    error: function(xhr, type) {
+	                        alert('Ajax error!');
+	                        // 即使加载出错，也得重置
+	                        me.resetload();
+	                    },
+	                    complete: function(XMLHttpRequest, textStatus) {
+
+	                    }
+	                });
+	            },
+	            threshold: 50
+	        });
+	    }, 500);
+	}
+});
+
+</script>
+
+</html>

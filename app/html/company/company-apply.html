@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/append-info.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <title>团检申请</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="zui-forms zui-form-more">
+            <form id="form">
+                <div class="zui-cell">
+                    <div class="zui-cell-label more">联系人</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input" autocomplete="off" placeholder="请填写联系人" required pattern="" emptyTips="请填写联系人" notMatchTips="请填写真实有效联系人" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label more">联系方式</div>
+                    <div class="zui-cell-bd">
+                        <input type="tel" class="zui-input" autocomplete="off" placeholder="请填写手机/座机" required pattern="" emptyTips="请填写手机号码/座机"  />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">企业名称</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input" autocomplete="off" placeholder="请填写企业名称" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">预算人数</div>
+                    <div class="zui-cell-bd">
+                        <input type="tel" class="zui-input" autocomplete="off" placeholder="请填写预算人数" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">人均预算</div>
+                    <div class="zui-cell-bd" onclick="pickerFun($(this),0)">
+                        <input type="tel" class="zui-input zui-picker" autocomplete="off" placeholder="请选择" readonly/>
+                    </div>
+                    <div class="zui-cell-hd"><span class="zui-icon-right zui-mm"></span></div>
+                </div>
+                <div class="submit-box">
+                    <a href="###" class="zui-btn zui-btn-login" id="btn-form">保存</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+// 解决ios不支持readonly
+$("input[readonly]").on("focus", function() {
+    $(this).trigger('blur');
+})
+//提交登录
+$("#btn-form").on("click", function() {
+    weui.form.validate('#form', function(error) {
+        if (!error) {
+            var loading = weui.loading('提交中...');
+            setTimeout(function() {
+                loading.hide();
+                weui.toast('提交成功', 3000);
+            }, 1500);
+        }
+    }, {
+        regexp: {
+            IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,
+        }
+    });
+});
+weui.form.checkIfBlur('#form', {
+    regexp: {
+        IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,
+    }
+});
+
+//选择picker
+function pickerFun($dom, i) {
+    var json = [
+        [{
+                label: '1000-2000',
+                value: 0
+            },
+            {
+                label: '2000-3000',
+                value: 1
+            },
+            {
+                label: '3000-4000',
+                value: 1
+            }
+
+        ]
+    ]
+    weui.picker(json[i], {
+        className: 'custom-classname',
+        container: 'body',
+        defaultValue: [0],
+        onChange: function(result) {},
+        onConfirm: function(result) {
+            var label = result[0].label;
+            $dom.find(".zui-picker").val(label);
+        },
+        id: 'singleLinePicker'
+    });
+}
+</script>
+
+</html>

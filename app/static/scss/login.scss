@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+@import "form";
+html,
+body {
+    background: #fff;
+}
+.zui-cell-box {
+    @include flexbox;
+    @include vertical-layout(center);
+    position: relative;
+    margin-top: 0.20rem;
+    overflow: hidden;
+    padding: 0.15rem 0;
+    padding-left: 0.40rem;
+    padding-right:0.40rem;
+    overflow: hidden;
+    .zui-cell-hd{
+        position: relative;
+        z-index:3;
+    }
+    .zui-vcode {
+            width: 1.8rem;
+            height: 0.60rem;
+            display: block;
+            margin-left: 0.10rem;
+        }
+    .zui-hq{
+        position: relative;
+        z-index:2;
+        color:$main-color;
+        // background:$main-color;
+        // width: 2.0rem;
+        // text-align:center;
+        // border-radius:0.40rem;
+        display:block;
+        font-size: 0.30rem;
+        // line-height:2;
+    }
+    .zui-cell-icon {
+        img {
+            display: inline-block;
+            width: 0.32rem;
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-bottom: 1px;
+        }
+    }
+    .zui-cell {
+    	@include flex(1);
+        border: 0;
+        position: relative;
+        padding: 0.10rem 0.30rem;
+        z-index: 10;
+        z-index: 2;
+        overflow: hidden;
+    }
+    &::after {
+        content: "\200B";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: 1.0rem;
+        z-index: 1;
+    }
+}
+
+.login-bg {
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.link-box {
+    @include flexbox;
+    @include horizontal-layout(justify);
+    padding: 0.20rem 0.30rem;
+    .link {
+        display: block;
+        color: $main-color;
+    }
+}
+.link-box-c{
+    text-align: center;
+    padding:0.20rem 0;
+    .link {
+        color: $main-color;
+    }
+}
+
+.login-form {
+    margin: 0.80rem 0.60rem;
+}
+.link-msg{
+    text-align:center;
+    padding-top:0.80rem;
+    .link{
+        color: $main-color;
+    }
+}
+
+.login-xy{
+    padding:0.20rem 0.30rem;
+}
+.login-btn-box{
+    padding:0.20rem 0.50rem;
+}

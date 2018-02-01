@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+@import "form";
+@import "footer";
+.user-header{
+	@include flexbox;
+	@include vertical;
+    @include vertical-layout(center);
+    @include horizontal-layout(center);
+	width: 100%;
+	height: 3.6rem;
+	background:url(/static/images/bg/user-bg.png) no-repeat center center;
+	background-size:100% 100%;
+	color:#fff;
+	.user-img{
+		background:#fff;
+		border-radius:50%;
+		overflow: hidden;
+		img{
+			display:block;
+			width: 1.50rem;
+			height: 1.50rem;
+		}
+	}
+	.user-name{
+		font-size: 0.36rem;
+		margin-top:.10rem;
+		margin-bottom:.10rem;
+	}
+	.user-edit{
+		border:1px solid #fff;
+		border-radius: 0.40rem;
+		display:block;
+		padding: 0 0.40rem;
+		color:#fff;
+		line-height: 1.5;
+	}
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/append-info.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <title>填写预约信息</title>
+</head>
+
+<body>
+    <div class="container-no">
+        <div class="zui-form0">
+            <form id="form">
+                <div class="zui-cell">
+                    <div class="zui-cell-label">姓名</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input" autocomplete="off" placeholder="请填写真实姓名" required pattern="" emptyTips="请填写真实姓名" notMatchTips="请填写真实姓名" />
+                    </div>
+                    <a href="../user/choose-person.html" class="choose">
+                        <img src="/static/images/icon/user.png">
+                    </a>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">身份证号</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input m-card" autocomplete="off" placeholder="请填写真实有效身份证号" required pattern="REG_IDNUM" maxlength="18" emptyTips="请填写真实有效身份证号" notMatchTips="身份证号格式不正确" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">性别</div>
+                    <div class="zui-cell-bd" onclick="pickerFun($(this),0)">
+                        <input type="text" class="zui-input zui-picker" autocomplete="off" placeholder="请选择性别" required emptyTips="请选择性别" readonly />
+                    </div>
+                    <div class="zui-cell-hd"><span class="zui-icon-right zui-mm"></span></div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">年龄</div>
+                    <div class="zui-cell-bd">
+                        <input type="tel" class="zui-input" autocomplete="off" placeholder="请填写年龄" required pattern="[0-9]{3}" maxlength="3" emptyTips="请填写年龄" notMatchTips="请填写有效年龄" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">婚姻状态</div>
+                    <div class="zui-cell-bd" onclick="pickerFun($(this),1)">
+                        <input type="text" class="zui-input zui-picker" autocomplete="off" placeholder="请选择婚姻状态" required emptyTips="请选择婚姻状态" readonly />
+                    </div>
+                    <div class="zui-cell-hd"><span class="zui-icon-right zui-mm"></span></div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">手机号码</div>
+                    <div class="zui-cell-bd">
+                        <input type="tel" class="zui-input phone" autocomplete="off" placeholder="请填写手机号码" required pattern="^1[3|4|5|7|8][0-9]{9}$" maxlength="11" emptyTips="请填写手机号码" notMatchTips="手机号码格式不正确" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">手机号码</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input" autocomplete="off" placeholder="请填写手机号码" required pattern="^1[3|4|5|7|8][0-9]{9}$" maxlength="11" emptyTips="请填写手机号码" notMatchTips="手机号码格式不正确"  />
+                    </div>
+                    <div class="zui-cell-hd">
+                        <input type="button" value="获取" class="zui-hq" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">验证码</div>
+                    <div class="zui-cell-bd">
+                        <input type="text" class="zui-input" autocomplete="off" placeholder="请填写短信验证码" required pattern="[0-9]{6}" maxlength="6" emptyTips="请填写短信验证码" notMatchTips="验证码格式不正确" />
+                    </div>
+                </div>
+                <div class="zui-cell">
+                    <div class="zui-cell-label">体检时间</div>
+                    <a href="append-date.html" class="zui-cell-bd" style="display: block;">
+                        <input type="text" class="zui-input zui-main-color" autocomplete="off" placeholder="请选择体检时间" required pattern="" emptyTips="请选择体检时间" readonly />
+                    </a>
+                    <div class="zui-cell-hd"><span class="zui-icon-right zui-mm"></span></div>
+                </div>
+                <div class="submit-box">
+                    <a href="append-confirm.html" class="zui-btn zui-btn-login" id="btn-form">立即预约</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+
+// 解决ios不支持readonly
+$("input[readonly]").on("focus",function(){
+    $(this).trigger('blur');
+})
+//提交登录
+$("#btn-form").on("click", function() {
+    weui.form.validate('#form', function(error) {
+        if (!error) {
+            var loading = weui.loading('提交中...');
+            setTimeout(function() {
+                loading.hide();
+                weui.toast('提交成功', 3000);
+            }, 1500);
+        }
+    }, {
+        regexp: {
+            IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,
+        }
+    });
+});
+weui.form.checkIfBlur('#form', {
+    regexp: {
+        IDNUM: /(?:^\d{15}$)|(?:^\d{18}$)|^\d{17}[\dXx]$/,
+    }
+});
+// 倒计时
+function timeFun(dom, time) {
+    if (time == 0) {
+        dom.prop("disabled", false);
+        dom.val("重新获取");
+    } else {
+        dom.prop("disabled", true);
+        dom.val(--time + " s");
+        setTimeout(function() {
+            timeFun(dom, time);
+        }, 1000);
+    }
+}
+$(".zui-hq").on("click", function() {
+    var phone = $.trim($(".phone").val());
+    if (phone == "") {
+        weui.topTips('手机号码不能为空', 3000);
+        return false;
+    }
+    if (!phone.match(/^1[34578]\d{9}$/)) {
+        weui.topTips('请输入正确的手机号', 3000);
+        return false;
+    }
+    timeFun($(this), 60)
+});
+
+//选择picker
+function pickerFun($dom,i) {
+var json = [
+            [
+                {
+                    label: '男',
+                    value: 0
+                },
+                {
+                    label: '女',
+                    value: 1
+                }
+
+            ],
+            [
+                {
+                    label: '未婚',
+                    value: 0
+                },
+                {
+                    label: '已婚',
+                    value: 1
+                }
+
+            ]
+        ]
+    weui.picker(json[i], {
+        className: 'custom-classname',
+        container: 'body',
+        defaultValue: [0],
+        onChange: function(result) {},
+        onConfirm: function(result) {
+            var label = result[0].label;
+            $dom.find(".zui-picker").val(label);
+        },
+        id: 'singleLinePicker'
+    });
+}
+</script>
+
+</html>

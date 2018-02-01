@@ -1,0 +1,82 @@
+.et-footer {
+    background: #fff;
+    text-align: center;
+    color: $sub-font-color;
+    font-size: 0.30rem;
+    margin-top: 0.30rem;
+    padding-top: 0.20rem;
+    .hos-img {
+        padding-left: 0.20rem;
+        padding-right: 0.20rem;
+        margin-bottom: 0.30rem;
+        img {
+            display: block;
+            height: 1.50rem;
+            margin: 0 auto;
+        }
+    }
+    .hos-type {
+        // font-size:20px;
+        padding-left: 0.20rem;
+        padding-right: 0.20rem;
+        .dot {
+            font-size: 0;
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #666666;
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-bottom: 1px;
+            margin-left: 0.10rem;
+            margin-right: 0.10rem;
+        }
+    }
+    .hos-address {
+        margin-top: 0.20rem;
+        margin-bottom: 0.20rem;
+        font-size:0.32rem;
+        padding-left: 0.20rem;
+        padding-right: 0.20rem;
+        // font-size:24px;
+        img {
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-bottom: 1px;
+            display: inline-block;
+            height: 0.32rem;
+            margin-right: 0.10rem;
+        }
+    }
+    .hos-link {
+    	margin-bottom:0.30rem;
+        padding-left: 0.20rem;
+        padding-right: 0.20rem;
+        a {
+            display: inline-block;
+            padding: 0.06rem 0.30rem;
+            border: 1px solid $main-color;
+            border-radius: 0.40rem;
+            color: $main-color;
+            margin-left:0.20rem;
+            // font-size:24px;
+            &:first-child{
+            	margin-left:0;
+            }
+            img {
+                vertical-align: middle;
+                margin-top: -2px;
+                margin-bottom: 1px;
+                display: inline-block;
+                height: 0.30rem;
+                margin-right: 0.10rem;
+            }
+        }
+    }
+    .et{
+    	background:#f8f8f8;
+    	padding:0.20rem 0;
+        // font-size:20px;
+    }
+}

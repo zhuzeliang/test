@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/order.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <script src="/static/js/dropload.min.js"></script>
+    <title>订单列表</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <div class="nav active"><span>全部</span></div>
+            <div class="nav"><span>已预约</span></div>
+            <div class="nav"><span>已完成</span></div>
+        </div>
+        <div class="content">
+            <div class="order-list">
+                <div class="order">
+                    <a href="###" class="order-detail">
+                        <div class="order-top">
+                            <div class="order-top-img">
+                                <img src="/static/images/test/p-male.png">
+                            </div>
+                            <div class="order-top-text">
+                            	<h3>个人基础体检套餐(男)</h3>
+                            	<div class="zui-em-color">¥1250.00</div>
+                            </div>
+                        </div>
+                        <div class="order-item">订单号：000000000000000000</div>
+                        <div class="order-item">体检人：张强</div>
+                        <div class="order-item">体检时间：2018-10-10  星期五</div>
+                    </a>
+                    <div class="order-line"></div>
+                    <div class="order-handle">
+                    	<div class="state">已预约</div>
+                    	<div class="order-btn-box">
+                    		<a href="###" class="order-btn cancel">取消</a>
+                    		<a href="../append/append-info.html" class="order-btn edit">修改日期</a>
+                    	</div>
+                    </div>
+                </div>
+                <div class="order">
+                    <a href="###" class="order-detail">
+                        <div class="order-top">
+                            <div class="order-top-img">
+                                <img src="/static/images/test/p-male.png">
+                            </div>
+                            <div class="order-top-text">
+                            	<h3>个人基础体检套餐(男)</h3>
+                            	<div class="zui-em-color">¥1250.00</div>
+                            </div>
+                        </div>
+                        <div class="order-item">订单号：000000000000000000</div>
+                        <div class="order-item">体检人：张强</div>
+                        <div class="order-item">体检时间：2018-10-10  星期五</div>
+                    </a>
+                    <div class="order-line"></div>
+                    <div class="order-handle">
+                    	<div class="state">已完成</div>
+                    	<div class="order-btn-box">
+                    		<a href="../report/report-detail.html" class="order-btn see">查看报告</a>
+                    	</div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+$(document).ready(function(){
+	loadMore();
+	$(".nav").on("click",function(){
+		$(this).addClass('active').siblings('.nav').removeClass('active');
+		loadMore();
+	})
+	var timer;
+	var counter = 0;
+	function loadMore() {
+	    // 清空内容
+	    timer = null;
+	    clearTimeout(timer);
+	    timer = setTimeout(function() {
+	    	counter = 0;
+	        $('.order-list').empty();
+	        $('.dropload-down').remove();
+	        // 每页展示7个
+	        $('.content').dropload({
+	            scrollArea: window,
+	            loadDownFn: function(me) {
+	                $.ajax({
+	                    type: 'GET',
+	                    url: '/static/json/more.json',
+	                    dataType: 'json',
+	                    success: function(data) {
+	                        var result = '';
+	                        counter++;
+	                        for (var i = 0; i < 2; i++) {
+	                            result += '<div class="order">'+
+							                    '<a href="order-detail.html" class="order-detail">'+
+							                        '<div class="order-top">'+
+							                            '<div class="order-top-img">'+
+							                                '<img src="/static/images/test/p-male.png">'+
+							                            '</div>'+
+							                           ' <div class="order-top-text">'+
+							                            	'<h3>个人基础体检套餐(男)</h3>'+
+							                            	'<div class="zui-em-color">¥1250.00</div>'+
+							                           ' </div>'+
+							                        '</div>'+
+							                        '<div class="order-item">订单号：000000000000000000</div>'+
+							                        '<div class="order-item">体检人：张强</div>'+
+							                        '<div class="order-item">体检时间：2018-10-10  星期五</div>'+
+							                    '</a>'+
+							                    '<div class="order-line"></div>'+
+							                   ' <div class="order-handle">'+
+							                    	'<div class="state">已预约</div>'+
+							                    	'<div class="order-btn-box">'+
+							                    		'<a href="###" class="order-btn cancel">取消</a>'+
+							                    		'<a href="###" class="order-btn edit">修改日期</a>'+
+							                    	'</div>'+
+							                   ' </div>'+
+							                '</div>'
+	                            if (counter > 3) {
+	                                // 锁定
+	                                me.lock();
+	                                // 无数据
+	                                me.noData();
+	                                break;
+	                            }
+	                        }
+	                        // 为了测试，延迟1秒加载
+	                        setTimeout(function() {
+	                            $('.order-list').append(result);
+	                            // 每次数据加载完，必须重置
+	                            me.resetload();
+	                        }, 1000);
+	                    },
+	                    error: function(xhr, type) {
+	                        alert('Ajax error!');
+	                        // 即使加载出错，也得重置
+	                        me.resetload();
+	                    },
+	                    complete: function(XMLHttpRequest, textStatus) {
+
+	                    }
+	                });
+	            },
+	            threshold: 50
+	        });
+	    }, 300);
+	}
+})
+</script>
+</html>

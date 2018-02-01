@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+.r-report {
+    .zui-row {
+        color: $sub-font-color;
+        font-size: 0.32rem;
+    }
+    .r-item {
+    	display:block;
+        @include flexbox;
+        @include vertical-layout(center);
+        padding: 0.20rem 0.30rem;
+        background: #fff;
+        padding-left: 0.90rem;
+        .r-item-name {
+            @include flex(1);
+        }
+    }
+    .r-editor {
+        padding: 0.20rem 0.30rem;
+        padding-left: 0.90rem;
+        background: #fff;
+        line-height: 1.428;
+        text-align: justify;
+        margin-bottom: 0.30rem;
+    }
+    .r-tips{
+    	padding:0.20rem 0.30rem;
+    	line-height:1.428;
+    	padding-left:0.90rem;
+    	color:$sub-font-color;
+    }
+}
+
+.r-t{
+	border-top-right-radius: 0.20rem;
+	border-bottom-right-radius: 0.20rem;
+	background:$main-color;
+	color:#fff;
+	line-height:1.60;
+	padding-left:0.30rem;
+	padding-right: 0.30rem;
+	display:inline-block;
+	margin-top:0.30rem;
+}
+.mm-tale{
+	.mm-li{
+		@include border-1px;
+		border-bottom-width: 1px;
+		@include flexbox;
+        @include vertical-layout(center);
+        background:#fff;
+        padding:0.30rem;
+        line-height:1.42;
+        .mm-li-label{
+        	width: 0;
+        	@include flex(1);
+        	margin-right:0.20rem;
+        }
+        .mm-li-bd{
+        	width: 0;
+        	@include flex(1.5);
+        	h3{
+        		font-weight: normal;
+        		font-size:0.30rem;
+        		margin-bottom:0.05rem;
+        	}
+        	h4{
+        		font-weight: normal;
+        		font-size:0.30rem;
+        		color:$sub-font-color;
+        	}
+        }
+	}
+}
+
+.r-img-tips{
+	padding:0.30rem;
+	background:#fff;
+	text-align:justify;
+}
+
+.r-img-list{
+	background:#fff;
+	padding:0 0.30rem;
+	.r-img{
+		margin-top:0.30rem;
+		img{
+			display:block;
+			width: 100%;
+		}
+	}
+}

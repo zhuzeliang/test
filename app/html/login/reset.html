@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <title>重置密码</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-msg">
+            <form id="form">
+                <div class="zui-cells">
+                    <div class="zui-cell">
+                        <div class="zui-cell-bd">
+                            <input type="tel" class="zui-input phone" autocomplete="off" placeholder="输入手机号" required pattern="^1[3|4|5|7|8][0-9]{9}$" maxlength="11" emptyTips="请输入手机号" notMatchTips="请输入正确的手机号" />
+                        </div>
+                    </div>
+                    <div class="zui-cell">
+                        <div class="zui-cell-bd">
+                            <input type="text" class="zui-input" autocomplete="off" placeholder="输入短信验证码" required pattern="[0-9]{6}" maxlength="6" emptyTips="请输入短信验证码" notMatchTips="短信验证码格式不正确" />
+                        </div>
+                        <div class="zui-cell-hd"><input type="button" value="获取" class="zui-hq" /></div>
+                    </div>
+                    <div class="zui-cell">
+                        <div class="zui-cell-bd">
+                            <input type="text" class="zui-input mm" autocomplete="off" placeholder="输入新密码" required pattern="^[0-9a-zA-Z]+$" emptyTips="请输入新密码" notMatchTips="密码格式不正确" />
+                        </div>
+                    </div>
+                    <div class="zui-cell">
+                        <div class="zui-cell-bd">
+                            <input type="text" id="Input" class="zui-input mm-repeat" autocomplete="off" placeholder="重复密码" required pattern="^[0-9a-zA-Z]+$" emptyTips="请输入重复密码" notMatchTips="重复密码不正确" />
+                        </div>
+                    </div>
+                    <div class="zui-cell">
+                        <div class="zui-cell-bd">
+                            <input type="text" class="zui-input" autocomplete="off" placeholder="输入图形验证码" required pattern="[A-Za-z0-9]{4}" maxlength="4" emptyTips="请输入图形验证码" notMatchTips="图形验证码格式不正确"/>
+                        </div>
+                        <div class="zui-cell-hd"><img src="###" alt="图形验证码" class="zui-vcode" /></div>
+                    </div>
+                </div>
+                <div class="login-btn-box">
+                    <button class="zui-btn-login" id="btn-login">重置密码</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+     // 倒计时
+    function timeFun(dom, time) {
+        if (time == 0) {
+            dom.prop("disabled", false);
+            dom.val("重新获取");
+        } else {
+            dom.prop("disabled", true);
+            dom.val(--time + " s");
+            setTimeout(function() {
+                timeFun(dom, time);
+            }, 1000);
+        }
+    }
+    $(".zui-hq").on("click",function(){
+        if ($.trim($(".phone").val()) == '') {
+            weui.topTips('手机号码不能为空', 3000);
+            return false;
+        }
+        timeFun($(this), 60)
+    });
+    //提交登录
+    $("#btn-login").on("click", function() {
+        weui.form.validate('#form', function(error) {
+            if (!error && checkRepeat()) {
+                var loading = weui.loading('提交中...');
+                setTimeout(function() {
+                    loading.hide();
+                    weui.toast('提交成功', 3000);
+                }, 1500);
+            }
+        });
+    });
+    weui.form.checkIfBlur('#form', {});
+    //重复密码验证
+    $(".mm-repeat").on("blur",function(){
+        checkRepeat();
+    });
+    function checkRepeat(){
+        var mm = $.trim($(".mm").val());
+        var repeatMe = $.trim($(".mm-repeat").val());
+        if(mm != repeatMe){
+            weui.topTips('重复密码不正确', 3000);
+            return false;
+        }
+        return true;
+    }
+})
+</script>
+
+</html>

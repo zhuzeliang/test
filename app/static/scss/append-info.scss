@@ -1,0 +1,36 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+@import "form";
+@import "footer";
+.zui-cell .zui-cell-hd .zui-hq {
+    border-left: 1px solid #ddd;
+    padding-left: 0.30rem;
+    margin-left: 0.30rem;
+    border-radius: 0;
+}
+.zui-mm{
+	margin-left:0.20rem;
+	display:block;
+	margin-top:2px;
+}
+.submit-box{
+    padding:0.30rem 0.50rem 0.50rem 0.50rem;
+}
+.choose{
+    display:block;
+    margin-left:0.20rem;
+    img{
+        display:block;
+        width: 0.46rem;
+    }
+}
+.preview{
+    display:block;
+    width: 1.50rem;
+    height: 1.50rem;
+    border-radius:50%;
+}

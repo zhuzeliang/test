@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/report.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <title>体检报告</title>
+</head>
+
+<body>
+    <div class="container r-report">
+        <div class="zui-row">
+            <div class="zui-row-icon">
+                <img src="/static/images/icon/r-01.png">
+            </div>
+            <div class="zui-row-bd">报告解析</div>
+        </div>
+        <div class="r-editor">
+            您的血压为150/90mmHg,偏高，请进一步咨询医生，做详细检查
+        </div>
+        <div class="zui-row">
+            <div class="zui-row-icon">
+                <img src="/static/images/icon/r-02.png">
+            </div>
+            <div class="zui-row-bd">检查项目</div>
+        </div>
+        <div class="r-item-list">
+            <a href="report-table.html" class="r-item">
+                <div class="r-item-name">血常规</div>
+                <div class="zui-icon-right"></div>
+            </a>
+            <a href="report-img.html" class="r-item">
+                <div class="r-item-name">B超</div>
+                <div class="zui-icon-right"></div>
+            </a>
+        </div>
+        <div class="r-tips">注：该电子报告仅供参考，请以医院纸质报告为准</div>
+    </div>
+</body>
+
+</html>

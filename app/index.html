@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <script src="/static/js/swipeSlide.min.js"></script>
+    <script src="https://a.alipayobjects.com/g/h5-lib/alipayjsapi/3.0.6/alipayjsapi.inc.min.js"></script>
+    <title>首页</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 轮播图start -->
+        <div class="slide" id="slide3">
+            <ul>
+                <li>
+                    <a href="###">
+                        <img src="/static/images/bg/login.png" />
+                    </a>
+                </li>
+                <li>
+                    <a href="###">
+                        <img src="/static/images/bg/login.png" />
+                    </a>
+                </li>
+                <li>
+                    <a href="###">
+                        <img src="/static/images/bg/login.png" />
+                    </a>
+                </li>
+            </ul>
+            <div class="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <button id="J_btn_title" class="btn btn-default">设置标题文字</button>
+        <button id="J_btn_image" class="btn btn-default">设置标题图片(url)</button>
+        <button id="J_btn_bgColor" class="btn btn-default">设置导航栏背景色</button>
+        <button id="J_btn_borderColor" class="btn btn-default">设置导航栏颜底边框色</button>
+        <button id="J_btn_reset" class="btn btn-default">重置导航栏样式</button>
+        <div class="nav-list">
+            <a href="html/hospital/hos.html" class="nav">
+                <div class="nav-img">
+                    <img src="/static/images/icon/n-01.png">
+                </div>
+                <div class="nav-text">医院风采</div>
+            </a>
+            <a href="html/product/product.html" class="nav">
+                <div class="nav-img">
+                    <img src="/static/images/icon/n-02.png">
+                </div>
+                <div class="nav-text">体检预约</div>
+            </a>
+            <a href="###" class="nav">
+                <div class="nav-img">
+                    <img src="/static/images/icon/n-03.png">
+                </div>
+                <div class="nav-text">报告查询</div>
+            </a>
+            <a href="###" class="nav">
+                <div class="nav-img">
+                    <img src="/static/images/icon/n-04.png">
+                </div>
+                <div class="nav-text">订单管理</div>
+            </a>
+            <a href="###" class="nav">
+                <div class="nav-img">
+                    <img src="/static/images/icon/n-05.png">
+                </div>
+                <div class="nav-text">健康自测</div>
+            </a>
+            <a href="###" class="nav">
+                <div class="nav-img">
+                    <img src="/static/images/icon/n-06.png">
+                </div>
+                <div class="nav-text">个人中心</div>
+            </a>
+        </div>
+        <div class="zui-t">
+            <img src="/static/images/icon/t-01.png">
+            <span>企业团队体检申请</span>
+        </div>
+        <a href="###" class="com-link">
+            <div class="com-img">
+                <img src="/static/images/bg/com.png">
+            </div>
+            <div class="com-text">
+                <div class="com-main-text">一键申请，轻松解决</div>
+                <div class="com-sub-text"><span>团队体检</span><img src="/static/images/icon/go.png"></div>
+            </div>
+        </a>
+        <div class="et-footer">
+            <div class="hos-img">
+                <img src="/static/images/bg/hos.png">
+            </div>
+            <div class="hos-type">
+                <span>上海市第一人民医院体检中心</span>
+                <span class="dot">.</span>
+                <span>公立三甲甲等医院</span>
+            </div>
+            <div class="hos-address">
+                <img src="/static/images/icon/address.png">
+                <span>上海市徐汇区桂林路406号1号楼502</span>
+            </div>
+            <div class="hos-link">
+                <a href="tel:021-88888888">
+                    <img src="/static/images/icon/tel.png">
+                    <span>021-88888888</span>
+                </a>
+                <a href="alipays://platformapi/startapp?appId=20000042&publicBizType=LIFE_APP&publicId=2013110600000001">
+                    <img src="/static/images/icon/map.png">
+                    <span>导航</span>
+                </a>
+            </div>
+            <div class="et">由医通在线提供技术支持</div>
+        </div>
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+// 轮播图
+$('#slide3').swipeSlide({
+    continuousScroll: true,
+    speed: 3000,
+    transitionType: 'cubic-bezier(0.22, 0.69, 0.72, 0.88)',
+    firstCallback: function(i, sum, me) {
+        me.find('.dot').children().first().addClass('cur');
+    },
+    callback: function(i, sum, me) {
+        me.find('.dot').children().eq(i).addClass('cur').siblings().removeClass('cur');
+    }
+    //   });
+    //   var btnLocation = document.querySelector('#J_btn_location');
+    // var output = document.querySelector('#J_output');
+    // btnLocation.addEventListener('click', function(){
+    //   ap.getLocation(function(res) {
+    //     output.innerHTML = JSON.stringify(res, undefined, '  ');
+    //   });
+});
+    var btnTitle = document.querySelector('#J_btn_title');
+    var btnImage = document.querySelector('#J_btn_image');
+    var btnBgColor = document.querySelector('#J_btn_bgColor');
+    var btnBorderColor = document.querySelector('#J_btn_borderColor');
+    var btnReset = document.querySelector('#J_btn_reset');
+
+    btnTitle.addEventListener('click', function() {
+        ap.setNavigationBar('支付宝-AlipayJSAPI');
+    });
+    btnImage.addEventListener('click', function() {
+        ap.setNavigationBar({
+            image: 'https://zos.alipayobjects.com/rmsportal/jFCQxeOXeKTQUfhrQFOo.png'
+        });
+    });
+    btnBgColor.addEventListener('click', function() {
+        ap.setNavigationBar({
+            title: '设置导航栏背景色',
+            backgroundColor: '#ED4A4D'
+        });
+    });
+    btnBorderColor.addEventListener('click', function() {
+        ap.setNavigationBar({
+            title: '设置导航栏底部边框色',
+            borderBottomColor: '#108ee9'
+        });
+    });
+    btnReset.addEventListener('click', function() {
+        ap.setNavigationBar({
+            title: '重置导航栏样式',
+            reset: true
+        });
+    });
+
+});
+</script>
+
+</html>

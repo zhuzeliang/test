@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <title>登录</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-bg">
+            <img src="/static/images/bg/login.jpg">
+        </div>
+        <div class="login-form">
+            <form  class="zui-form" id="form">
+                <div class="zui-cell-box">
+                    <div class="zui-cell-icon">
+                        <img src="/static/images/icon/phone.png">
+                    </div>
+                    <div class="zui-cell">
+                        <div class="zui-cell-bd">
+                            <input type="tel" class="zui-input" placeholder="请输入手机号码" autocomplete="off" required pattern="^1[3|4|5|7|8][0-9]{9}$" maxlength="11" emptyTips="请输入手机号" notMatchTips="请输入正确的手机号">
+                        </div>
+                    </div>
+                </div>
+                <div class="zui-cell-box">
+                    <div class="zui-cell-icon">
+                        <img src="/static/images/icon/key.png">
+                    </div>
+                    <div class="zui-cell">
+                        <div class="zui-cell-bd">
+                            <input type="text" class="zui-input" placeholder="请输入密码" autocomplete="off" required pattern="^[0-9a-zA-Z]+$" emptyTips="请输入密码" notMatchTips="密码格式不正确">
+                        </div>
+                    </div>
+                </div>
+               <!--  <div class="agree">
+                    <label for="zui" class="zui-checkbox-box">
+                        <input type="checkbox" name="" class="zui-checkbox" checked id="zui" required tips="请阅读并同意平台用户服务协议" />
+                        <span class="zui-checkbox-tip"></span>
+                    </label>
+                    <a href="###">我已同意平台用户协议</a>
+                </div> -->
+                <button class="zui-btn-login" id="btn-login">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                <div class="link-box">
+                    <a href="register.html" class="link">新用户注册</a>
+                    <a href="reset.html" class="link">忘记密码</a>
+                </div>
+                <div class="link-msg">
+                    <a href="login-msg.html" class="link">使用短信登录</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+$(document).ready(function() {
+    $("#btn-login").on("click", function() {
+        weui.form.validate('#form', function(error) {
+            if (!error) {
+                var loading = weui.loading('提交中...');
+                setTimeout(function() {
+                    loading.hide();
+                    weui.toast('提交成功', 3000);
+                }, 1500);
+            }
+        });
+    });
+    weui.form.checkIfBlur('#form', {})
+});
+</script>
+
+</html>

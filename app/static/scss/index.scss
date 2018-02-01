@@ -1,0 +1,75 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+@import "button";
+@import "swipeSlide";
+@import "footer";
+.nav-list {
+    @include clearfix;
+    background: #fff;
+    padding: 0.20rem 0;
+    .nav {
+        display: block;
+        float: left;
+        width: 33.33%;
+        text-align: center;
+        padding: 0.20rem 0;
+        .nav-img {
+            margin-bottom: 0.10rem;
+            img {
+                display: block;
+                margin: 0 auto;
+                height: 0.84rem;
+            }
+        }
+    }
+}
+
+.zui-t {
+    padding: 0.20rem;
+    font-size: 0.32rem;
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-bottom: 1px;
+        height: 0.40rem;
+        margin-right: 0.10rem;
+    }
+}
+
+.com-link {
+    @include flexbox;
+    @include horizontal-layout(center);
+    @include vertical-layout(center);
+    padding: 0.20rem 0.40rem;
+    background:#fff;
+    .com-img {
+        img {
+            width: 2.78rem;
+            height: 1.52rem;
+        }
+    }
+    .com-text {
+        @include flex(1);
+        text-align: right;
+        .com-main-text {
+            font-size: 0.36rem;
+            margin-bottom:0.10rem;
+        }
+        .com-sub-text {
+            font-size: 0.30rem;
+            color: $sub-font-color;
+            img {
+                display: inline-block;
+                vertical-align: middle;
+                margin-top: -2px;
+                margin-bottom: 1px;
+                height: 0.30rem;
+                margin-left:0.10rem;
+            }
+        }
+    }
+}
