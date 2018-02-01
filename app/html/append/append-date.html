@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" href="/static/css/append-date.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/weui.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <title>选择日期</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper"></div>
+        <div class="date-box">
+            <label>已选：</label>
+            <span id="z-date"></span>&nbsp;
+            <span id="z-week"></span>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <a href="append-info.html" class="footer-tab one" id="btn-form">确定</a>
+        </div>
+    </footer>
+</body>
+<script type="text/template" id="templatedemo">
+       <div class="futu-calendar">
+            <div class="tool-bar"></div>
+            <div class="time-bar">
+                <span class="time-bar-container">
+                    <em class="emLeft"></em>
+                    <font class="current-date"><%=calInfo.current.year%>年<%=calInfo.current.month%>月</font>
+                    <em class="emRight"></em>
+                </span>
+            </div>
+            <div class="date-container">
+                <div class="weekdate">
+                    <ul>
+                        {{ _.each(weekdate, function(item) { }}<li>{{=item}}</li>{{ }) }}
+                    </ul>
+                </div>
+                <div class="regular-date">
+                    <%_.each([0,1,2,3,4,5], function(i) {%>
+                        <ul>
+                            <%_.each([0,1,2,3,4,5,6],function(j){ var item = calInfo.list[j+i*7];%>
+                            <li date-index="item-<%=j+i*7%>" class="<%=((item.classList)||[]).join(" ")%>">
+                                <span><%=item.date%></span>
+                            </li>
+                            <%})%>
+                        </ul>
+                    <%});%>
+                </div>
+            </div>
+        </div>
+    </script>
+<script>
+var input = document.querySelector("#z-date");
+//修复日期插件document上绑定隐藏日历事件
+$(".container,footer").on("click",function(e){
+    e.stopPropagation();
+});
+var dateArrs = ["2017-11-11", "2017-11-12","2017-11-13","2017-11-15"];//后台可选日期数据
+var weekArrs = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+var cal = new futuCalendar({
+    wrapper: ".wrapper",
+    initshow: true,
+    autohide:false,
+    hasMask: false,
+    showToolBar: false,
+    dataFormat: "yyyy-MM-dd",
+    valueTarget: input,
+    enableList: dateArrs,
+    defaultDate:new Date("2017-11-13"),//设置默认日期
+    selectMonth: function(instance, info, offset) {
+        console.log(info);
+    },
+    selectDateCallback: function(el, dataInfo) {
+        console.log(dataInfo);
+        var date = dataInfo.date;
+        var weekNum = new Date(date).getDay();
+        var zWeek = document.querySelector("#z-week");
+        zWeek.innerHTML = weekArrs[weekNum];
+    }
+});
+
+</script>
+
+</html>
