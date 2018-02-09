@@ -9,8 +9,8 @@
     <meta content="telephone=no" name="format-detection" />
     <meta content="email=no" name="format-detection" />
     <script type="text/javascript" src="http://at.alicdn.com/t/font_554873_81hz2gtqfthp8pvi.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/config.js"></script>
     <title>城市搜索</title>
     <style type="text/css">
     * {
@@ -159,6 +159,15 @@ $("#input").on("input porpertychange", function() {
     } else {
         $(".input-citys").html(fragDom);
     }
+});
+
+$(".input-box").addClass("box").parent().addClass("aa").parent().addClass("mm")
+$.ajax({
+	type:"get",
+	url:"http://localhost:3001/comment/music?id=186016&limit=1",
+	success:function(data){
+		console.log(data)
+	}
 });
 </script>
 

@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/*清除浮动*/
+@mixin clearfix
+{
+    &:after
+    {
+        display: block;
+        clear: both;
+
+        height: 0;
+
+        content: '\200B';
+    }
+}
+
+//弹性盒子
+@mixin flexbox()
+{
+    display: -webkit-box;
+}
+//弹性盒子分配
+@mixin flex($value)
+{
+    -webkit-box-flex: $value;
+}
+//弹性盒子垂直分配
+@mixin vertical()
+{
+    -webkit-box-orient: vertical;
+}
+//弹性盒子子元素水平方向布局
+@mixin horizontal-layout($value)
+{
+    -webkit-box-pack: $value;
+}
+//弹性盒子子元素垂直放行布局
+@mixin vertical-layout($value)
+{
+    -webkit-box-align: $value;
+}
+//超出省略
+@mixin clamp($value)
+{
+    display: -webkit-box;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $value;
+}
+
+
+//圆圈
+@mixin border-radius($amount: 5px)
+{
+    -webkit-border-radius: $amount;
+            border-radius: $amount;
+}
+
+//怪异模式盒子
+@mixin box-sizing($box-sizing)
+{
+    -webkit-box-sizing: $box-sizing;
+            box-sizing: $box-sizing;
+}
+
+//阴影
+@mixin box-shadow($rgba)
+{
+    -webkit-box-shadow: 0 0 10px $rgba;
+            box-shadow: 0 0 10px $rgba;
+}
+
+//旋转角度
+@mixin rotate($deg)
+{
+    -webkit-transform: rotate($deg);
+            transform: rotate($deg);
+}
+
+
+// css3动画及过渡效果开启硬件加速
+@mixin speedUp
+{
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+//移动端1px解决
+@mixin border-1px
+{
+    border-width: 0;
+    border-style: solid;
+    // border-bottom-width: 1px;
+    border-image: url('data:image/gif;base64,R0lGODlhBQAFAPABANra2v///yH5BAUHAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7') 2 stretch;
+}
+
+//向右图形
+@mixin icon-right
+{
+    position: absolute;
+    top: 50%;
+    right:0.40rem;
+
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin-left: .3em;
+
+    content: '\200B';
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+
+    border-width: 2px 2px 0 0;
+    border-style: solid;
+    border-color: #c8c8cd;
+    margin-top:-5px;
+    margin-left:-5px;
+}

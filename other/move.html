@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>move</title>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			button{
+				display: block;
+				margin:10px;
+			}
+			.btn-list{
+				width: 500px;
+				margin:50px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="btn-list">
+			<button class="btn">点我啊111</button>
+			<button class="btn">点我啊222</button>
+			<button class="btn">点我啊333</button>
+		</div>
+		<script type="text/javascript">
+			$(".btn").on("click",function(){
+					if($(this).index() == $(".btn").length - 1){
+						return;
+					}
+					var  cloneDiv = $(this).clone(true);
+//					console.log(cloneDiv)
+					$(this).next().after(cloneDiv);
+					$(this).remove();
+			
+			})
+		</script>
+	</body>
+</html>

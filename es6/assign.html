@@ -3,14 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Object.assign()</title>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
 </head>
 <body>
 	<h1>Object.assign()</h1>
 </body>
 <script type="text/javascript">
-	// var target = {a:1,m:2};
-	// var copy = Object.assign({c:6},target);
+	var target = {a:1,m:2,c:2};
+	// var copy = Object.assign({c:6},target,{a:88,c:66},{a:888,c:666});
 	// console.log(copy);
+
+
+	var mm = $.extend({c:6},{c:1},{a:888,c:666})
+	console.log(mm);
+
+	var i = 0;
+	function count(){
+		var timer = setTimeout(count,1000);
+		console.log(i++);
+		if(i > 5){
+			clearTimeout(timer);
+		}
+	};
+	count()
 	// console.log(target);
 	// target.a = 9;
 	// console.log(copy);
@@ -55,18 +70,18 @@
 	// console.log(arr);
 
 
-	function deepClone(obj){
-		var newObj = {};
-		for(key in obj){
-			newObj[key] = obj[key] == Object ? deepClone(obj[key]) : obj[key];
-		}
-		return newObj;
-	};
+	// function deepClone(obj){
+	// 	var newObj = {};
+	// 	for(key in obj){
+	// 		newObj[key] = obj[key] == Object ? deepClone(obj[key]) : obj[key];
+	// 	}
+	// 	return newObj;
+	// };
 
-	// console.log(deepClone(me));
-	var deepCloneMe = deepClone({a:2,b:{c:1}});
-	console.log(deepCloneMe);
-	deepCloneMe.a = 6;
-	console.log(deepCloneMe);
+	// // console.log(deepClone(me));
+	// var deepCloneMe = deepClone({a:2,b:{c:1}});
+	// console.log(deepCloneMe);
+	// deepCloneMe.a = 6;
+	// console.log(deepCloneMe);
 </script>
 </html>

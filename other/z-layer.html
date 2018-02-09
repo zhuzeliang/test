@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="../css/z-layer.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <title>jquery layer插件</title>
+</head>
+
+<body>
+    <button id="btn">点我弹窗</button>
+    <!-- <div class="z-layer-box">
+    	<div class="z-layer-shadow"></div>
+        <div class="z-layer z-layui-anim-scale">
+            <div class="z-layer-title">
+                我是标题区域
+            </div>
+            <div class="z-layer-content">
+                我是内容区域
+            </div>
+            <div class="z-layer-btns">
+                <a href="###" class="z-layer-btn z-layer-btn0">取消</a>
+                <a href="###" class="z-layer-btn z-layer-btn1">确定</a>
+            </div>
+        </div>
+    </div> -->
+</body>
+<script type="text/javascript">
+//默认配置
+var html = `<h3>这是哈哈哈哈 </h3>`;
+var config = {
+    // title:"我是标题区域",
+    type: 0,
+    shade: true,
+    shadeClose: true,
+    fixed: true,
+    anim: 'scale',//默认动画类型
+    // buttons:['确定'],
+    content:html,
+    // yes:function(){
+    //     console.log('yes');
+    // },
+    // no:function(){
+    //     console.log('no');
+    // }
+
+};
+
+$("#btn").on("click", function() {
+
+});
+// 构建Layer对象
+var Layer = function(options) {
+    this.config = $.extend(config, options);
+    this.view();
+};
+//创建动态html视图
+Layer.prototype.view = function() {
+    var btnArrs = this.config.buttons;          
+    var shadeHtml = this.config.shade ? '<div class="z-layer-shadow"></div>' : '';
+    var btnsHtml = (function(){
+        if(!this.config.buttons){
+            return '';
+        }else{
+            var btns = '<div class="z-layer-btns">';
+            var type = '';
+            $.each(btnArrs,function(i,item){
+                if(btnArrs.length == 2){
+                    btns+= i == 0 ?`<a no type=${i} class="z-layer-btn">${item}</a>` : `<a yes type=${i} class="z-layer-btn">${item}</a>`;
+                }else{
+                    btns+=`<a yes type=${i} class="z-layer-btn">${item}</a>`;
+                }
+            });
+            return btns + '</div>';
+        }
+    }());
+    var contentHtml = `<div class="z-layer-content">${this.config.content}</div>`;
+    var titleHtml = this.config.title ? `<div class="z-layer-title">${this.config.title}</div>` : '';
+    var layerHtml = `<div class="z-layer-box">
+                        ${shadeHtml}
+                        <div class="z-layer z-layui-anim-${this.config.anim}">
+                            ${titleHtml}
+                            ${contentHtml}
+                            ${btnsHtml}
+                        </div>
+                    </div>`;
+    $("body").append(layerHtml);
+    this.action();
+   
+};
+Layer.prototype.action = function(){
+    this.config.yes && this.config.yes();
+
+}
+layer = {
+    open:function(options){
+        new Layer(options || {});
+    },
+    close:function(){
+        $(".z-layer-box").remove();
+    }
+};
+
+layer.open({
+    title:"我是标题区域111",
+    type: 0,
+    shade: true,
+    shadeClose: true,
+    fixed: true,
+    anim: 'up',//默认动画类型
+    buttons:['取消','确定'],
+    content:html,
+    yes:function(){
+        console.log('yes');
+    },
+    no:function(){
+        console.log('no');
+    }
+});
+setTimeout(function(){
+    // layer.close();
+},10000)
+</script>
+
+</html>
