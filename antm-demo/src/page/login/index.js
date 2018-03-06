@@ -57,8 +57,12 @@ class Login extends Component {
 		Toast.loading('正在登录...',0);
 		setTimeout( () => {
 			Toast.hide();
-			setStore('user_id','azzhah000')
-			this.props.history.push(`/user/:${getStore("user_id")}`)
+			setStore('user_id','azzhah000');
+			var path = {
+			  pathname:'/user',
+			  query:{user_id:'azzhah000'}
+			}
+			this.props.history.push(path)
 		},2000)
 	}
 	render() {

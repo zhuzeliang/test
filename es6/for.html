@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for</title>
+</head>
+<body>
+	<ul>
+		<li>111</li>
+		<li>222</li>
+		<li>333</li>
+	</ul>
+	<script type="text/javascript">
+		var arr = ["a","b","c"];
+		for(var i = 0;i < arr.length;i++){
+			console.log(arr[i]);
+		};
+
+
+		for(key in arr){
+			console.log(key);
+		};
+
+
+		for(key of arr){
+			console.log(key);
+		};
+
+
+		var list = document.querySelectorAll("li");
+		list = Array.prototype.slice.call(list);
+		console.log(Array.isArray(list))
+	</script>
+</body>
+</html>

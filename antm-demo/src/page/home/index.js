@@ -80,17 +80,7 @@ class Home extends Component {
 				        </div>
 		};
 
-		let divHtml = 	<div className="lists">
-			                {
-			                    this.state.goodsData.map( (item, i) => {
-			                        return (
-			                           <select>
-			                           		<option>{item.name}</option>
-			                           </select>
-			                        )
-			                    })
-			                }
-				        </div>
+		
 		return (
 			<div className = "page-home">
 				<button onClick={this.handleAdd.bind(this)}>加加加</button>
@@ -101,7 +91,6 @@ class Home extends Component {
 					<img src={require('../../images/test/b.png')} alt="1" style={{height:"3.0rem"}}/>
 					<img src={require('../../images/test/a.png')} alt="2" style={{height:"3.0rem"}}/>
 				</Carousel>
-				{divHtml}
 				<div className="zui-nav-list">
 					<div className="zui-nav zui-nav-screen">
 						<Link to="/">

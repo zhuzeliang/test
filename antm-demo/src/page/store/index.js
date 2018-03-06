@@ -42,11 +42,8 @@ class Store extends Component {
           return;
         };
     }
-    async initData(pIndex = 0) {
-        console.log(this.props.currentLocation);
-        if(this.props.currentLocation.latitude){
-            console.log(1)
-        }
+    async initData(pIndex) {
+        console.log(pIndex)
         try{
             //获取地理位置信息
             if(this.state.loadingLocation){
@@ -58,7 +55,7 @@ class Store extends Component {
             let resJson = await res.json();
             console.log(resJson)
             this.setState({ goodsData: [...this.state.goodsData, ...resJson.results] })
-            this.setState({ dataSource: this.state.dataSource.cloneWithRows(this.state.goodsData) });
+            this.setState({ dataSource: this.state.dataSource.cloneWithRows(this.state.goodsData)});
         }catch(error){
             console.log(error);
         }

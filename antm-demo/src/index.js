@@ -12,13 +12,14 @@ import Login from './page/login/';
 import Store from './page/store/';
 import User from './page/user/';
 import CheckAuth from './page/checkAuth/';
+import Error from './page/error';
 
 const routes = [
 				{ path: '/', component: Home, exact: true },
 				{ path: '/login', component: Login },
 				{ path: '/welcome', component: Welcome },
 				{ path: '/store', component: Store },
-				{ path: '/user/:id', component: User }
+				{ path: '/user', component: User }
 			]
 
 
@@ -34,6 +35,7 @@ ReactDOM.render(
 			        		<Route key={route.path} path={route.path} component={route.component}  exact={route.exact} />
 			        	))
 			        }
+			        <Route path="*" component={ Error } />
 			    </Switch>
 	        </div>
 	    </BrowserRouter>

@@ -34,7 +34,7 @@ export const fecthIndexGoods = (locationStr) => {
 
 //商铺列表分页加载
 export const fecthPageGoods = (page,locationStr) => {
-	return fetchJsonp('http://api.map.baidu.com/place/v2/search?query=汽车$维修&page_size=6&location='+locationStr+'&scope=2&filter=sort_name:distance|sort_rule:1&radius=5000&output=json&ak='+ config.ak)
+	return fetchJsonp('http://api.map.baidu.com/place/v2/search?query=汽车$维修&page_size=6&page_num='+page+'&location='+locationStr+'&scope=2&filter=sort_name:distance|sort_rule:1&radius=5000&output=json&ak='+ config.ak)
 }
 
 

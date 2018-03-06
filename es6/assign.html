@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,15 +24,16 @@
 	var mm = $.extend({c:6},{c:1},{a:888,c:666})
 	console.log(mm);
 
-	var i = 0;
-	function count(){
-		var timer = setTimeout(count,1000);
-		console.log(i++);
-		if(i > 5){
-			clearTimeout(timer);
-		}
-	};
-	count()
+	;(function(){
+		var i = 0;
+		(function count(){
+			var timer = setTimeout(count,1000);
+			console.log(i++);
+			if(i > 5){
+				clearTimeout(timer);
+			}
+		}());
+	})()
 	// console.log(target);
 	// target.a = 9;
 	// console.log(copy);

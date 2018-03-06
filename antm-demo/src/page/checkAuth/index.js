@@ -5,11 +5,19 @@ import {setStore, getStore} from '../../config/utils.js'
 class CheckAuth extends Component {
  
     componentDidMount() {
-    	if(getStore("user_id")){
-
-    	}else{
-    		this.props.history.push('/login')
-    	}
+//     	if(getStore("user_id")){
+// this.props.history.push('/login')
+//     	}else{
+//     		this.props.history.push('/login')
+//     	}
+        const publicList = ['/user','/register'];
+        const pathname = this.props.location.pathname;
+        if (publicList.indexOf(pathname)>-1) {
+           this.props.history.push('/login');
+            // return null
+        }else{
+             console.log(556);
+        }
     }
     render() {
         return (
