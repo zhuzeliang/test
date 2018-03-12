@@ -10,6 +10,9 @@ class Product extends Component {
             productData:this.props.data
         };
     }
+    componentWillReceiveProps(nextProps) {
+        // console.log(nextProps)
+    }
     render() {
       let item = this.state.productData;
       let distanceM = item.detail_info.distance;

@@ -17,7 +17,8 @@ class Home extends Component {
 			goodsData: [],
 			data: ['', '', ''],
 			loactionStr: '',
-			cityName: ''
+			cityName: '',
+			appid: 1
 		};
 	}
 	componentDidMount() {
@@ -49,6 +50,9 @@ class Home extends Component {
 	}
 	handleAdd (){
 		this.props.add();
+		this.setState({
+			appid:++this.state.appid
+		})
 	}
 	handleRemove (){
 		this.props.remove();
@@ -112,7 +116,7 @@ class Home extends Component {
         			<h2><span className="mid">全城推荐</span><Link to="/" className="city">{ this.state.loadingLocation ? "定位中..." : this.state.cityName}</Link></h2>
     			</div>
     			{goodsHtml}
-				<Navbar/>
+				<Navbar appid={this.state.appid} handleAdd={this.handleAdd.bind(this)}/>
 
 			</div>
 		);

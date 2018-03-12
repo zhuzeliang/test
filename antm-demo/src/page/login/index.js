@@ -62,7 +62,7 @@ class Login extends Component {
 			  pathname:'/user',
 			  query:{user_id:'azzhah000'}
 			}
-			this.props.history.push(path)
+			this.props.history.push(path);
 		},2000)
 	}
 	render() {

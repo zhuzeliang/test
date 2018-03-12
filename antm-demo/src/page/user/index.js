@@ -8,7 +8,7 @@ class Store extends Component {
         this.state = {
             
         };
-        console.log(this.props)
+        console.log(this.props);
     }
     componentDidMount() {
 

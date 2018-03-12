@@ -30,7 +30,8 @@ class Store extends Component {
         this.initData();
     }
     componentWillReceiveProps(nextProps) {
-        // console.log(nextProps)
+        console.log(nextProps)
+
         // if(!nextProps.currentLocation.loading){
         //     this.setState({ loadingLocation:false });
         //     let locationStr = nextProps.currentLocation.latitude + "," + nextProps.currentLocation.longitude;
@@ -43,7 +44,6 @@ class Store extends Component {
         };
     }
     async initData(pIndex) {
-        console.log(pIndex)
         try{
             //获取地理位置信息
             if(this.state.loadingLocation){
@@ -53,7 +53,6 @@ class Store extends Component {
             //根据地理位置信息获取首页就近商铺信息
             let res = await fecthPageGoods(pIndex,this.state.locationStr);
             let resJson = await res.json();
-            console.log(resJson)
             this.setState({ goodsData: [...this.state.goodsData, ...resJson.results] })
             this.setState({ dataSource: this.state.dataSource.cloneWithRows(this.state.goodsData)});
         }catch(error){
@@ -69,6 +68,9 @@ class Store extends Component {
         }
         this.initData(this.pageIndex++);
     }
+    add(){
+        console.log(this.props)
+    }
 
     render() {
         const row = (rowData, sectionID, rowID) => {
@@ -78,7 +80,7 @@ class Store extends Component {
         };
         return (
         <div className="page-store">
-            <header>
+            <header onClick = {this.add.bind(this)}>
                 <form action="/" method="get">
                     <div className="header-fixed">
                         <div className="zui-search">
@@ -112,7 +114,7 @@ class Store extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    currentLocation:state.reducerIndex.currentLocation
+    
 });
 const actionCreators = { saveLocation };
 
