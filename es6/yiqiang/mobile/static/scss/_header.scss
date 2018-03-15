@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.header{
+	@include flexbox;
+	@include vertical-layout(center);
+	@include horizontal-layout(justify);
+	padding:0 0.30rem;
+	position: fixed;
+	top:0;
+	right:0;
+	left:0;
+	height: 1.18rem;
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+	.back{
+		img{
+			display: block;
+			height: 0.40rem;
+		}
+	}
+	.more{
+		img{
+			display: block;
+			height: 0.40rem;
+		}
+	}
+	.logo{
+		img{
+			display: block;
+			height: 0.70rem;
+		}
+	}
+}

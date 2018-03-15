@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/pc/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/pc/static/css/index.css">
+    <script src="/pc/static/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="/pc/static/js/html5shiv.min.js"></script>
+      <script src="/pc/static/js/respond.min.js"></script>
+    <![endif]-->
+    <script src="/pc/static/js/bootstrap.min.js"></script>
+    <script src="/pc/static/js/lazyload.js"></script>
+    <script src="/pc/static/js/base.js"></script>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=V7GTuUvWI1oBA5IMFTUXvg4d2pXZducm"></script>
+    <title>壹枪代拍</title>
+</head>
+
+<body>
+    <!-- 头部start -->
+    <div class="zui-header clearfix">
+        <a class="zui-logo pull-left" href="###">
+            <img src="/pc/static/images/bg/logo.png" alt="壹枪代拍">
+        </a>
+        <div class="pull-right zui-nav-list clearfix">
+            <a href="index.html" class="zui-nav">首页</a>
+            <a href="###" class="zui-nav">代拍套餐</a>
+            <a href="###" class="zui-nav">公司简介</a>
+            <a href="news_list.html" class="zui-nav">新闻中心</a>
+            <a href="###" class="zui-nav">联系我们</a>
+        </div>
+    </div>
+    <!-- 头部end -->
+    <!-- 轮播图start -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="/pc/static/images/bg/banner-01.png">
+            </div>
+            <div class="item">
+                <img src="/pc/static/images/bg/banner-01.png">
+            </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- 轮播图end -->
+    <div class="content">
+        <form class="form-inline zui-append">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><img src="/pc/static/images/icon/user.png"></div>
+                    <input type="text" class="form-control" placeholder="输入姓名">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><img src="/pc/static/images/icon/tel.png"></div>
+                    <input type="text" class="form-control" style="width: 300px;" placeholder="输入电话号码">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">免费电话，预约代拍</button>
+        </form>
+    </div>
+    <div class="content-bg">
+        <div class="content">
+            <div class="zui-t">
+                <div class="zui-t-m">
+                    <h3>代拍套餐</h3>
+                    <span class="zui-line"></span>
+                </div>
+                <div class="zui-t-b">
+                    中标率的高低是策略、设备、网速及操作码工四方共同努力的结果，根据投入产出程度，套餐分类如下
+                </div>
+            </div>
+            <div class="good-list">
+                <a href="###" class="good">
+                    <h4 class="good-t">私车额度代拍套餐A</h4>
+                    <p class="zui-r good-price">25000元</p>
+                    <div class="good-ps">
+                        <p class="good-p">一次不中赔<em class="zui-r">1000</em>元</p>
+                        <p class="good-p">自主研发大数据分析软件</p>
+                        <p class="good-p">骨灰级码工</p>
+                        <p class="good-p">3台百万级服务器</p>
+                        <p class="good-p">国拍主干网</p>
+                        <p class="good-p">（名额有限先到先得）</p>
+                    </div>
+                </a>
+                <a href="###" class="good">
+                    <h4 class="good-t">私车额度代拍套餐B</h4>
+                    <p class="zui-r good-price">16000元</p>
+                    <div class="good-ps">
+                        <p class="good-p">三次不中赔<em class="zui-r">1000</em>元</p>
+                        <p class="good-p">自主研发大数据分析软件</p>
+                        <p class="good-p">资深级码工</p>
+                        <p class="good-p">3台十万级服务器</p>
+                        <p class="good-p">千兆电信机房宽带</p>
+                    </div>
+                </a>
+                <a href="###" class="good">
+                    <h4 class="good-t">私车额度代拍套餐C</h4>
+                    <p class="zui-r good-price">10000元</p>
+                    <div class="good-ps">
+                        <p class="good-p">六次不中赔<em class="zui-r">600</em>元</p>
+                        <p class="good-p">自主研发大数据分析软件</p>
+                        <p class="good-p">精英级码工</p>
+                        <p class="good-p">3台万元级服务器</p>
+                        <p class="good-p">国拍主干网</p>
+                        <p class="good-p">五百兆电信机房宽带</p>
+                    </div>
+                </a>
+                <a href="###" class="good">
+                    <h4 class="good-t zui-r">企业额度代拍套餐</h4>
+                    <p class="zui-r good-price">3000元</p>
+                    <div class="good-ps">
+                        <p class="good-p">一次中标不中赔<em class="zui-r">1000</em>元</p>
+                        <p class="good-p">承诺低于当月平均价中标</p>
+                        <p class="good-p">若超出平均价则超过的部分</p>
+                        <p class="good-p">由壹枪承担代</p>
+                        <p class="good-p">拍费含增值税专用发票如需拍</p>
+                        <p class="good-p">最低价中标代拍费4000元</p>
+                        <p class="good-p">不中赔<em class="zui-r">1000</em>元</p>
+                    </div>
+                </a>
+            </div>
+            <div class="append-type">
+                <div class="btn btn-primary">
+                    <span>线上上门预约</span>
+                    <img src="/pc/static/images/icon/phone.png">
+                    <span>13651826338</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content zui-intro">
+        <div class="zui-t">
+            <div class="zui-t-m">
+                <h3>公司介绍</h3>
+                <span class="zui-line"></span>
+            </div>
+            <div class="zui-t-b">
+                专业的上海牌照代拍公司，为你代拍沪牌
+            </div>
+        </div>
+        <div class="intro clearfix">
+            <div class="intro-img pull-left">
+                <div class="placeholder-img">
+                    <img data-original="/pc/static/images/bg/intro-img.png" class="lazy scale" src="/pc/static/images/bg/blank.png">
+                </div>
+            </div>
+            <div class="intro-detail">
+                <p>壹枪拍牌是一家常年专注沪牌代拍的技术型服务公司，公司拥有自主研发的大数据策略分析软件及自建大型百万级专业机房，拥有与国拍服务器同处同一级网络的先天优势，凭借着多年的拍牌实战经验，秉承“专业、搞笑、安全、透明、诚信”的经营理念，已为上千位客户取得沪牌。我们队所雇佣的码工团队进行三重考核淘汰机制确保了拍牌当日拍牌的竞技状态、强大的软硬件支持确保了大数据策略分析的准确性及时效性，壹枪拍牌的中标率一直处于行业领先地位。</p>
+                <p>我们通过专业化运作，高中标率与不中就赔付的双重机制相结合，全方位保障客户的利益。公司同时也提供沪C转沪牌、外牌转沪牌、代办外牌、代办临牌、二手车置换等车辆车牌服务。
+                </p>
+                <div>
+                    <img src="/pc/static/images/bg/intro.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-bg zui-resource">
+        <div class="zui-t">
+            <div class="zui-t-m">
+                <h3>资源优势</h3>
+                <span class="zui-line"></span>
+            </div>
+            <div class="zui-t-b">
+                每份标书均由专人团队负责，每月拍牌前三重考核机制下筛选出的团队，人均2秒内验证码输入准确率98%+，及3年以上实战经验，自购千万级服务器，机房按照TIA942 T3标准建造，引入双路供电系统、配备了精密空调系统、UPS系统、高性能的网络设备和高可靠性的安全设备，水平支持10G，主干支持40G应用，支持海量数据存储与处理，支持云计算，通过RAID/动态迁移技术确保主机99.99%的稳定性。
+            </div>
+        </div>
+        <div class="content">
+            <div class="zui-r-list clearfix">
+                <div class="zui-r">
+                    <div class="placeholder-img">
+                        <img data-original="/pc/static/images/bg/r-01.png" class="lazy scale" src="/pc/static/images/bg/blank.png">
+                    </div>
+                </div>
+                <div class="zui-r">
+                    <div class="placeholder-img">
+                        <img data-original="/pc/static/images/bg/r-02.png" class="lazy scale" src="/pc/static/images/bg/blank.png">
+                    </div>
+                </div>
+                <div class="zui-r">
+                    <div class="placeholder-img">
+                        <img data-original="/pc/static/images/bg/r-03.png" class="lazy scale" src="/pc/static/images/bg/blank.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content zui-process">
+        <div class="zui-t">
+            <div class="zui-t-m">
+                <h3>网上下单流程</h3>
+                <span class="zui-line"></span>
+            </div>
+            <div class="zui-t-b">
+                无需抵押标书，网上签署电子合同，中标再付款，方便快捷
+            </div>
+        </div>
+        <div class="process-img">
+            <div class="placeholder-img">
+                <img data-original="/pc/static/images/bg/process.png" class="lazy" src="/pc/static/images/bg/blank.png">
+            </div>
+        </div>
+        <div class="zui-order">
+            <a href="###" class="btn btn-primary">立刻网上下单</a>
+        </div>
+    </div>
+    <div class="content-bg zui-zb">
+        <div class="content">
+            <div class="zui-date">
+                <a href="###" class="date-prev">上个月</a>
+                <span class="date-box">
+                    <span class="date">2018年2月</span>
+                <em class="zui-line"></em>
+                </span>
+                <a href="###" class="date-next">下个月</a>
+            </div>
+            <div class="zb-list clearfix">
+                <!-- <div class="no-data">暂无数据</div> -->
+                <a href="###" class="zb">
+                    <div class="placeholder-img">
+                        <img class="lazy" src="/pc/static/images/bg/zb.png">
+                    </div>
+                </a>
+                <a href="###" class="zb">
+                    <div class="placeholder-img">
+                        <img class="lazy" src="/pc/static/images/bg/zb.png">
+                    </div>
+                </a>
+                <a href="###" class="zb">
+                    <div class="placeholder-img">
+                        <img class="lazy" src="/pc/static/images/bg/zb.png">
+                    </div>
+                </a>
+                <a href="###" class="zb">
+                    <div class="placeholder-img">
+                        <img class="lazy" src="/pc/static/images/bg/zb.png">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="content zui-quick">
+        <div class="zui-quick-t">
+            <img src="/pc/static/images/icon/quick.png">
+            <span>快捷入口</span>
+        </div>
+        <div class="quick-module">
+            <div class="quick-module-t">
+                <span class="circle">1</span>
+                <span>拍牌申请</span>
+            </div>
+            <div class="quick-a">
+                <a target="_blank" href=" https://chepai.alltobid.com/guopaiprecheckin.web/portal/index">申请／更换标书</a>
+                <a target="_blank" href="https://chepai.alltobid.com/guopaiprecheckin.web/login/index">标书激活查询</a>
+                <a target="_blank" href="https://v.qq.com/x/page/d05017runyv.html">网上操作视频</a>
+                <a target="_blank" href="https://v.qq.com/x/page/p05017g3chy.html">现场操作视频</a>
+                <a target="_blank" href="http://chepai.alltobid.com/contents/23/206.html">拍牌资格介绍</a>
+                <a target="_blank" href="http://chepai.alltobid.com/contents/23/106.html"> 拍牌资格查询</a>
+                <a target="_blank" href="http://chepai.alltobid.com/contents/23/162.html">常见问题解答</a>
+            </div>
+            <div class="quick-module-t">
+                <span class="circle">2</span>
+                <span>拍牌登记</span>
+            </div>
+            <div class="quick-a">
+                <a target="_blank" href="http://www.alltobid.com/contents/16/69.html">拍牌须知</a>
+                <a target="_blank" href="http://v.youku.com/v_show/id_XMjUzMjY4MDA0NA==.html">拍牌登记视频</a>
+                </li>
+                <div class="quick-module-t">
+                    <span class="circle">3</span>
+                    <span>开始拍牌</span>
+                </div>
+                <div class="quick-a">
+                    <a target="_blank" href="http://test.alltobid.com/moni/gerenlogin.html">模拟拍牌系统</a>
+                    <a target="_blank" href="http://paimai2.alltobid.com/">正式拍牌(当天开放)</a>
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/223.html">拍牌操作流程</a>
+                    <a target="_blank" href="http://v.youku.com/v_show/id_XMTUzNTQ1OTQ4OA==.html">拍牌操作视频</a>
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/76.html">常见问题解答</a>
+                    <a target="_blank" href="https://test.alltobid.com">测试浏览器兼容性</a>
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/80.html">标书次数/有效期查询</a>
+                </div>
+                <div class="quick-module-t">
+                    <span class="circle">4</span>
+                    <span>成交付款</span>
+                </div>
+                <div class="quick-a">
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/80.html">竞拍结果查询</a>
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/77.html">网上付款操作流程</a>
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/126.html">付款后快递上门介绍</a>
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/78.html">现场付款操作流程</a>
+                    <a target="_blank" href="http://www.alltobid.com/contents/16/226.html">现场付款地点</a>
+                    <a target="_blank" href="https://jrfw.alltobid.com/Loan/"> 分期付款介绍</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-bg zui-news">
+        <div class="zui-t">
+            <div class="zui-t-m">
+                <h3>新闻中心</h3>
+                <span class="zui-line"></span>
+            </div>
+            <div class="zui-t-b">
+                专注于沪牌牌照七年有余，有丰富的上海拍牌经验、上海拍牌、上海牌照代拍技巧和代理上海国拍投标经验
+            </div>
+        </div>
+        <div class="content">
+            <div class="news-list">
+                <div class="news clearfix">
+                    <div class="news-img">
+                        <div class="placeholder-img">
+                            <img class="lazy" src="/pc/static/images/bg/zb.png">
+                        </div>
+                    </div>
+                    <div class="news-detail">
+                        <h4>新购换领标书流程</h4>
+                        <div class="news-detail-t">
+                            目前国拍新换标书需要20个工作日(即1个月左右)的审核期，因此拍牌当天第一时间去预约领标书是很重要的，因为这样是最有可能再次月拍牌前完成审核，从而不错过下次拍牌。
+                        </div>
+                        <div class="news-btn-box">
+                            <a href="news_detail.html" class="btn btn-primary">阅读详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news clearfix">
+                    <div class="news-img">
+                        <div class="placeholder-img">
+                            <img class="lazy" src="/pc/static/images/bg/zb.png">
+                        </div>
+                    </div>
+                    <div class="news-detail">
+                        <h4>新购换领标书流程</h4>
+                        <div class="news-detail-t">
+                            目前国拍新换标书需要20个工作日(即1个月左右)的审核期，因此拍牌当天第一时间去预约领标书是很重要的，因为这样是最有可能再次月拍牌前完成审核，从而不错过下次拍牌。
+                        </div>
+                        <div class="news-btn-box">
+                            <a href="news_detail.html" class="btn btn-primary">阅读详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news clearfix">
+                    <div class="news-img">
+                        <div class="placeholder-img">
+                            <img class="lazy" src="/pc/static/images/bg/zb.png">
+                        </div>
+                    </div>
+                    <div class="news-detail">
+                        <h4>新购换领标书流程</h4>
+                        <div class="news-detail-t">
+                            目前国拍新换标书需要20个工作日(即1个月左右)的审核期，因此拍牌当天第一时间去预约领标书是很重要的，因为这样是最有可能再次月拍牌前完成审核，从而不错过下次拍牌。
+                        </div>
+                        <div class="news-btn-box">
+                            <a href="news_detail.html" class="btn btn-primary">阅读详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="news-more">
+                <a href="news_list.html" class="btn btn-primary">查看更多&nbsp;+</a>
+            </div>
+        </div>
+    </div>
+    <div class="content zui-contact">
+        <div class="zui-t">
+            <div class="zui-t-m">
+                <h3>联系我们</h3>
+                <span class="zui-line"></span>
+            </div>
+            <div class="zui-t-b">
+                专业的上海牌照代拍公司，为你代拍沪牌！
+            </div>
+        </div>
+        <div class="contact-list clearfix">
+            <div class="contact">
+                <img  src="/pc/static/images/icon/c-01.png">
+                <h5>电话</h5>
+                <p class="sub">13651826338</p>
+            </div>
+            <div class="contact">
+                <img  src="/pc/static/images/icon/c-02.png">
+                <h5>地址</h5>
+                <p class="sub">上海市杨浦区控江路1688号1308室</p>
+            </div>
+            <div class="contact">
+                <img  src="/pc/static/images/icon/c-03.png">
+                <h5>微信号</h5>
+                <p class="sub">13651826338</p>
+            </div>
+            <div class="contact">
+                <img  src="/pc/static/images/icon/c-04.png">
+                <h5>上班时间</h5>
+                <p class="sub">周一至周日8:30-21:00</p>
+            </div>
+        </div>
+        <div id="allmap"></div>
+    </div>
+
+    <div class="footer">
+        <div class="a-list">
+            <a href="###">代拍套餐</a>
+            <a href="###">公司简介</a>
+            <a href="news_list.html">新闻中心</a>
+            <a href="###">联系我们</a>
+        </div>
+        <p>版权所有&nbsp; © &nbsp;壹枪代拍&nbsp;沪ICP备16037375号-1 </p>
+    </div>
+
+
+    <div class="back-top">
+        <img src="/pc/static/images/icon/air.png">
+        <p>返回顶部</p>
+    </div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    // 获取当前日期
+
+    (function initDate() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var nowDateArr = year + "-" + month + "-" + day;
+        var showDate = year + "年" + month + "月";
+        $(".date").text(showDate).attr("data", nowDateArr);
+    }());
+
+    //点击上个月事件
+    $(".date-prev").on("click", function() {
+        var date = $(".date").attr("data");
+        var prevDate = getPreMonth(date);
+        var arr = prevDate.split('-');
+        console.log(prevDate) //ajax后台
+        var year = arr[0];
+        var month = arr[1];
+        var showDate = year + "年" + month + "月";
+        $(".date").text(showDate).attr("data", prevDate);
+        $(".zb-list").html(createHtml());
+
+    });
+    //点击上个月事件
+    $(".date-next").on("click", function() {
+        var date = $(".date").attr("data");
+        var nextDate = getNextMonth(date);
+        console.log(nextDate) //ajax后台
+        var arr = nextDate.split('-');
+        var year = arr[0];
+        var month = arr[1];
+        var showDate = year + "年" + month + "月";
+        $(".date").text(showDate).attr("data", nextDate);
+        $(".zb-list").html(createHtml());
+    });
+
+    //生成html
+    function createHtml() {
+        var html = '';
+        for (var i = 0; i < 6; i++) {
+            html += '<a href="###" class="zb">' +
+                '<div class="placeholder-img">' +
+                '<img class="lazy" src="/pc/static/images/bg/zb.png">' +
+                '</div>' +
+                '</a>';
+        };
+        return html;
+    };
+
+    function getPreMonth(date) {
+        var arr = date.split('-');
+        var year = arr[0]; //获取当前日期的年份  
+        var month = arr[1]; //获取当前日期的月份  
+        var day = arr[2]; //获取当前日期的日  
+        var days = new Date(year, month, 0);
+        days = days.getDate(); //获取当前日期中月的天数  
+        var year2 = year;
+        var month2 = parseInt(month) - 1;
+        if (month2 == 0) {
+            year2 = parseInt(year2) - 1;
+            month2 = 12;
+        }
+        var day2 = day;
+        var days2 = new Date(year2, month2, 0);
+        days2 = days2.getDate();
+        if (day2 > days2) {
+            day2 = days2;
+        }
+        if (month2 < 10) {
+            month2 = '0' + month2;
+        }
+        var t2 = year2 + '-' + month2;
+        return t2;
+    };
+
+    function getNextMonth(date) {
+        var arr = date.split('-');
+        var year = arr[0]; //获取当前日期的年份  
+        var month = arr[1]; //获取当前日期的月份  
+        var day = arr[2]; //获取当前日期的日  
+        var days = new Date(year, month, 0);
+        days = days.getDate(); //获取当前日期中的月的天数  
+        var year2 = year;
+        var month2 = parseInt(month) + 1;
+        if (month2 == 13) {
+            year2 = parseInt(year2) + 1;
+            month2 = 1;
+        }
+        var day2 = day;
+        var days2 = new Date(year2, month2, 0);
+        days2 = days2.getDate();
+        if (day2 > days2) {
+            day2 = days2;
+        }
+        if (month2 < 10) {
+            month2 = '0' + month2;
+        }
+        var t2 = year2 + '-' + month2;
+        return t2;
+    };
+
+    // 百度地图
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(121.42156, 31.179376);//传入地址坐标
+    map.centerAndZoom(point, 12);
+    var myGeo = new BMap.Geocoder();
+    myGeo.getPoint("上海市徐汇区桂林406号华鑫中心-1号楼", function(point) {
+        if (point) {
+            map.centerAndZoom(point, 15);
+            map.addOverlay(new BMap.Marker(point));
+        } else {
+            alert("百度地图无法加载!");
+        }
+    }, "上海市");
+
+})
+</script>
+
+</html>

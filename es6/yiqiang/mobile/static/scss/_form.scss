@@ -1,0 +1,165 @@
+@charset "UTF-8";
+@import "reset";
+@import "mixins";
+@import "variable";
+@import "common";
+html,
+body {
+    background: #f8f8f8;
+}
+
+.zui-form {
+    margin-top: 0.30rem;
+     .agree {
+        text-align:left;
+        padding:0.20rem 0.30rem;
+    }
+}
+
+.zui-cells-right .zui-input {
+    text-align: right;
+}
+
+.zui-cells {
+    position: relative;
+    background: #fff;
+}
+
+.zui-cell {
+    @include flexbox;
+    @include vertical-layout(center);
+    position: relative;
+    padding: 0.30rem 0.30rem;
+    font-size: 0.32rem;
+    @include border-1px;
+    border-bottom-width: 1px;
+    background: #fff;
+    .zui-cell-label{
+        min-width:1.80rem;
+        margin-right:0.20rem;
+        color:$sub-font-color;
+    }
+    .zui-cell-icon {
+        margin-right: 0.30rem;
+        img {
+            display: inline-block;
+            width: 0.32rem;
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-bottom: 1px;
+        }
+    }
+    .zui-cell-bd {
+        @include flex(1);
+        position: relative;
+        .zui-input {
+            width: 100%;
+            height: 1.425em;
+            line-height: 1.425em;
+            font-size: inherit;
+            background: #fff;
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-bottom: 1px;
+        }
+        .zui-select {
+            width: 100%;
+            height: 100%;
+            line-height: 1.425em;
+            font-size: inherit;
+            background: #fff;
+            padding-right: 0.30rem;
+            vertical-align: middle;
+            margin-top: -2px;
+            margin-bottom: 1px;
+        }
+        .zui-cell-select {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+    .zui-cell-hd {
+        i {
+            font-style: normal;
+            color: #d00000;
+            display: inline-block;
+            width: 0.20rem;
+            font-size: 0.28rem;
+        }
+        .zui-vcode {
+            width: 1.80rem;
+            height: 0.60rem;
+            display: block;
+            margin-left: 0.30rem;
+        }
+        .zui-hq {
+            background: #fff;
+            color: $main-color;
+            font-size: inherit;
+            position: relative;
+            z-index:2;
+        }
+    }
+}
+.zui-form-more{
+    .more{
+        position: relative;
+        &::before{
+            content:"*";
+            display:inline-block;
+            position: absolute;
+            top:2px;
+            color:$em-color;
+            left:0;
+        }
+    }
+    .zui-cell-label{
+        padding-left: 0.20rem;
+    }
+}
+//checkbox
+.zui-checkbox-box {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    .zui-checkbox {
+        position: absolute;
+        left: -99999px;
+    }
+    .zui-checkbox-tip {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid $main-color;
+        border-radius: 50%;
+        position: relative;
+        background: #fff;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-bottom: 1px;
+        box-sizing: border-box;
+    }
+    .zui-checkbox:checked+.zui-checkbox-tip {
+        background: $main-color;
+        &::after {
+            position: absolute;
+            content: "\200B";
+            display: block;
+            width: 8px;
+            height: 4px;
+            background: transparent;
+            left: 50%;
+            top: 50%;
+            margin-left: -4px;
+            margin-top: -4px;
+            border-left: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            transform: rotateZ(-45deg);
+            z-index: 10;
+        }
+    }
+}

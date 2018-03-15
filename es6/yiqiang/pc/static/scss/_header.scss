@@ -1,0 +1,20 @@
+.zui-header{
+    width: 1200px;
+    margin:0 auto;
+    .zui-logo{
+        display: block;
+        padding: 18px 0;
+    }
+    .zui-nav-list{
+         padding: 35px 0;
+        .zui-nav{
+            float: left;
+            color: #000;
+            margin-left: 35px;
+            font-size: 16px;
+            &:hover{
+                color: $main-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+.zui-btn {
+    position: relative;
+    display: block;
+    padding: 0 0.10rem; // box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.zui-btn-login {
+    font-size: 0.36rem;
+    border-radius: 0.60rem;
+    background: $main-color;
+    line-height: 2.5;
+    color: #fff;
+}
+
+.zui-btn-edit {
+    padding: 0 0.30rem;
+    line-height: 1.8;
+    display: inline-block;
+    &::after {
+        content: "\200B";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: 0.50rem;
+    }
+}
+
+.zui-btn-cancel {
+    padding: 0 0.30rem;
+    line-height: 1.8;
+    display: inline-block;
+    &::after {
+        content: "\200B";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: 0.50rem;
+    }
+}
+
+.zui-btn-see {
+    padding: 0 0.30rem;
+    line-height: 1.8;
+    display: block;
+    border-radius: 5px!important;
+    background: $main-color;
+    color: #fff;
+}

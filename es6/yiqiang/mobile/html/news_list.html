@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="/mobile/static/css/weui.min.css">
+    <link rel="stylesheet" href="/mobile/static/css/index.css">
+    <script src="/mobile/static/js/config.js"></script>
+    <script src="/mobile/static/js/jquery.min.js"></script>
+    <script src="/mobile/static/js/weui.min.js"></script>
+    <script src="/mobile/static/js/dropload.min.js"></script>
+    <title>新闻列表</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="back">
+                <img src="/mobile/static/images/icon/back.png">
+            </div>
+            <div class="logo">
+                <img src="/mobile/static/images/bg/logo.png" alt="壹枪代拍">
+            </div>
+            <div class="more">
+                <img src="/mobile/static/images/icon/more.png">
+            </div>
+        </div>
+        <div class="content">
+            <div class="news-list">
+                <div class="news">
+                    <div class="news-img">
+                        <img class="lazy" src="/pc/static/images/bg/zb.png">
+                    </div>
+                    <div class="news-detail">
+                        <h4>新购换领标书流程</h4>
+                        <div class="news-detail-t">
+                            目前国拍新换标书需要20个工作日(即1个月左右)的审核期，因此拍牌当天第一时间去预约领标书是很重要的，因为这样是最有可能再次月拍牌前完成审核，从而不错过下次拍牌。
+                        </div>
+                        <div class="news-btn-box">
+                            <a href="news_detail.html" class="btn btn-primary">阅读详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news">
+                    <div class="news-img">
+                        <img class="lazy" src="/pc/static/images/bg/zb.png">
+                    </div>
+                    <div class="news-detail">
+                        <h4>新购换领标书流程</h4>
+                        <div class="news-detail-t">
+                            目前国拍新换标书需要20个工作日(即1个月左右)的审核期，因此拍牌当天第一时间去预约领标书是很重要的，因为这样是最有可能再次月拍牌前完成审核，从而不错过下次拍牌。
+                        </div>
+                        <div class="news-btn-box">
+                            <a href="news_detail.html" class="btn btn-primary">阅读详情</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="news">
+                    <div class="news-img">
+                        <img class="lazy" src="/pc/static/images/bg/zb.png">
+                    </div>
+                    <div class="news-detail">
+                        <h4>新购换领标书流程</h4>
+                        <div class="news-detail-t">
+                            目前国拍新换标书需要20个工作日(即1个月左右)的审核期，因此拍牌当天第一时间去预约领标书是很重要的，因为这样是最有可能再次月拍牌前完成审核，从而不错过下次拍牌。
+                        </div>
+                        <div class="news-btn-box">
+                            <a href="news_detail.html" class="btn btn-primary">阅读详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="a-list">
+                <a href="###">代拍套餐</a>
+                <a href="###">公司简介</a>
+                <a href="###">新闻中心</a>
+                <a href="###">联系我们</a>
+            </div>
+            <p>版权所有&nbsp; © &nbsp;壹枪代拍&nbsp;沪ICP备16037375号-1 </p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+	var counter = 0;
+	loadMore();
+	function loadMore() {
+        $('.content').dropload({
+            scrollArea: window,
+            loadDownFn: function(me) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/mobile/static/json/more.json',
+                    dataType: 'json',
+                    success: function(data) {
+                        var result = '';
+                        counter++;
+                        for (var i = 0; i < 3; i++) {
+                            result += '<div class="news">' +
+			                                '<div class="news-img">' +
+			                                	'<img class="lazy" src="/pc/static/images/bg/zb.png">' +
+			                                '</div>'+
+			                                '<div class="news-detail">'+
+			                                	'<h4>新购换领标书流程</h4>'+
+				                                '<div class="news-detail-t">' +
+				                                	' 目前国拍新换标书需要20个工作日(即1个月左右)的审核期，因此拍牌当天第一时间去预约领标书是很重要的，因为这样是最有可能再次月拍牌前完成审核，从而不错过下次拍牌。'+
+				                                '</div>' +
+				                                '<div class="news-btn-box">'+
+				                                	'<a href="news_detail.html" class="btn btn-primary">阅读详情</a>'+
+				                                '</div>' +
+				                            '</div>'+
+		                               '</div>';
+                            if (counter >= 3) {
+                                // 锁定
+                                me.lock();
+                                // 无数据
+                                me.noData();
+                                break;
+                            }
+                        }
+                        // 为了测试，延迟1秒加载
+                        setTimeout(function() {
+                            $('.news-list').append(result);
+                            // 每次数据加载完，必须重置
+                            me.resetload();
+                        }, 1000);
+                    },
+                    error: function(xhr, type) {
+                        alert('Ajax error!');
+                        // 即使加载出错，也得重置
+                        me.resetload();
+                    },
+                    complete: function(XMLHttpRequest, textStatus) {
+
+                    }
+                });
+            },
+            threshold: 50
+        });
+	}
+</script>
+</html>
