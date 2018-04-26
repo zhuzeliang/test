@@ -44,9 +44,11 @@
         -webkit-box-align: center;
         padding: 0 0.20rem;
         background: #eeeeee;
-        position: sticky;
+        position: fixed;
         left: 0;
         top: 0;
+        right:0;
+        z-index: 100;
     }
 
     .search-box {
@@ -65,12 +67,13 @@
     .input-citys {
         width: 100%;
         background: #fff;
-        position: sticky;
+        position: fixed;
         left: 0;
         top: 1.0rem;
+        z-index: 10;
     }
 
-    .input-city {
+    .input-city,.z-city {
 
         padding: 0.20rem;
         display: block;
@@ -83,12 +86,26 @@
         border: 0;
         outline: none;
         padding: 0.15rem 0.20rem;
+        box-sizing: border-box;
     }
 
     .no-city {
         color: #666;
         text-align: center;
         padding: 0.20rem;
+    }
+    .city-list{
+        padding-top: 1.0rem;
+    }
+    .z-shade{
+        background: rgba(215,215,218,.6);
+        position: fixed;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        z-index:9;
+        display: none;
     }
     </style>
 </head>
@@ -117,57 +134,88 @@
         <a href="###" class="input-city">上海</a>
         <a href="###" class="input-city">上海</a> -->
     </div>
-<button style="visibility: hidden;">这是个测试visibility</button>
-<button style="opacity:0;">这是个测试opacity</button>
-<button style="display: none;">这是个测试display</button>
+    <div class="city-list">
+    </div>
 </body>
+<script src="../js/city.js"></script>
 <script type="text/javascript">
-    $("button").on("click",function(){
-        alert(1)
-    })
-var cityList = [
-    { name: "杭州", adcode: "xxxx", pinyin: "hangzhou" },
-    { name: "上海", adcode: "yyyy", pinyin: "shanghai" },
-    { name: "上安", adcode: "yyyy", pinyin: "shanghai" },
-    { name: "安庆", adcode: "xxxx", pinyin: "anqing" },
-    { name: "南京", adcode: "yyyy", pinyin: "nanjing" }
-];
-
-$("#input").on("input porpertychange", function() {
-    $(".input-citys").empty();
-    var showList = [];
-    var value = $.trim($(this).val()).toLowerCase();
-    var valueReg = new RegExp(value);
-    var fragDom = '';
-    var noCity = '';
-    if (value == '') {
-        return;
-    }
-    $.each(cityList, function(i, item) {
-        if (valueReg.test(item.name)) {
-            showList.push(item);
-        } else if (valueReg.test(item.pinyin)) {
-            showList.push(item);
-        }
-    });
-    $.each(showList, function(i, item) {
-        fragDom += `<a href="###" class="input-city" data=${item.adcode}>${item.name}</a>`
-    });
-    if (showList.length == 0) {
-        noCity = '<div class="no-city">没有搜索到城市<div>';
-        $(".input-citys").html(noCity);
-    } else {
-        $(".input-citys").html(fragDom);
-    }
+// $("#input").on("input porpertychange", function() {
+//     $(".input-citys").empty();
+//     var showList = [];
+//     var value = $.trim($(this).val()).toLowerCase();
+//     var valueReg = new RegExp(value);
+//     var fragDom = '';
+//     var noCity = '';
+//     if (value == '') {
+//         return;
+//     }
+//     $.each($City, function(i, item) {
+//         if (valueReg.test(item.name)) {
+//             showList.push(item);
+//         } else if (valueReg.test(item.pinyin)) {
+//             showList.push(item);
+//         }
+//     });
+//     $.each(showList, function(i, item) {
+//         fragDom += `<a href="###" class="input-city" data=${item.adcode}>${item.name}</a>`
+//     });
+//     if (showList.length == 0) {
+//         noCity = '<div class="no-city">没有搜索到城市<div>';
+//         $(".input-citys").html(noCity);
+//     } else {
+//         $(".input-citys").html(fragDom);
+//     }
+// });
+let cityHtml = '';
+$.each($City,function(i,item){
+    cityHtml+=`<a href="###" class="z-city" data=${item.pinyin}>${item.name}</a>`;
 });
-
-$(".input-box").addClass("box").parent().addClass("aa").parent().addClass("mm")
-$.ajax({
-	type:"get",
-	url:"http://localhost:3001/comment/music?id=186016&limit=1",
-	success:function(data){
-		console.log(data)
-	}
+$(".city-list").html(cityHtml);
+;(function(win,$) {
+    win.CitySearch = function(dom, cb) {
+        this.action(dom, cb);
+    };
+    CitySearch.prototype.view = function(dom) {
+        $(".input-citys").empty();
+        var showList = [];
+        var value = $.trim(dom.val()).toLowerCase();
+        var valueReg = new RegExp(value);
+        var fragDom = '<div class="input-citys">';
+        var noCity = '';
+        if (value == '') {
+            return;
+        }
+        $.each($City, function(i, item) {
+            if (valueReg.test(item.name)) {
+                showList.push(item);
+            } else if (valueReg.test(item.pinyin)) {
+                showList.push(item);
+            }
+        });
+        $.each(showList, function(i, item) {
+            fragDom += `<a href="###" class="input-city" data=${item.pinyin}>${item.name}</a>`
+        });
+        if (showList.length == 0) {
+            noCity = '<div class="no-city">没有搜索到城市<div>';
+            $(".input-citys").html(noCity);
+        } else {
+            $(".input-citys").html(fragDom);
+        };
+    }
+    CitySearch.prototype.action = function(dom, cb) {
+        let _this = this;
+        dom.on("input porpertychange", function() {
+            _this.view(dom);
+        });
+        $(document).on("click", ".input-city", function() {
+            cb.call(this);
+        });
+    };
+})(window,$)
+new CitySearch($("#input"), function() {
+    console.log($(this).attr('data'));
+    console.log($(this).text());
+    // window.location.href=""
 });
 </script>
 
